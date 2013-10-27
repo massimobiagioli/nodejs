@@ -5,6 +5,8 @@
 
 var express = require('express'),
 	http = require('http'),
+	mongoose = require('mongoose'),
+	baucis = require('baucis'),
 	path = require('path');
 
 var app = express();
@@ -22,6 +24,12 @@ if ('development' == app.get('env')) {
 	app.use(express.errorHandler());
 }
 
-http.createServer(app).listen(app.get('port'), function(){
-	console.log('Express server listening on port ' + app.get('port'));
+mongoose.connect('mongodb://127.0.0.1:27017/mongoose-rest');
+
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error: '));
+db.once('open', function() {
+	http.createServer(app).listen(3000, '127.0.0.1', function() {
+		console.log("Express server listening on port " + app.get('port'));
+	});
 });
