@@ -1,0 +1,21 @@
+{
+  "name": "mocha-example",
+  "version": "0.1.0",
+  "description": "mocha-example",
+  "main": "hello-world-server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified! Configure in package.json\" && exit 1"
+  },
+  "repository": "",
+  "keywords": [
+    "Node.js",
+    "Eclipse",
+    "Nodeclipse"
+  ],
+  "author": "",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "devDependencies": {
+    "should": "~2.1.0"
+  }
+}
