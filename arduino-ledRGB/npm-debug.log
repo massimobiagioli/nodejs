@@ -1,0 +1,709 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   '--save',
+1 verbose cli   'serialport2' ]
+2 info using npm@1.3.11
+3 info using node@v0.10.21
+4 verbose node symlink C:\Program Files\nodejs\\node.exe
+5 warn package.json arduino-ledRGB@0.1.0 No repository field.
+6 verbose readDependencies using package.json deps
+7 verbose cache add [ 'serialport2', null ]
+8 verbose cache add name=undefined spec="serialport2" args=["serialport2",null]
+9 verbose parsed url { protocol: null,
+9 verbose parsed url   slashes: null,
+9 verbose parsed url   auth: null,
+9 verbose parsed url   host: null,
+9 verbose parsed url   port: null,
+9 verbose parsed url   hostname: null,
+9 verbose parsed url   hash: null,
+9 verbose parsed url   search: null,
+9 verbose parsed url   query: null,
+9 verbose parsed url   pathname: 'serialport2',
+9 verbose parsed url   path: 'serialport2',
+9 verbose parsed url   href: 'serialport2' }
+10 silly lockFile 0df840a6-serialport2 serialport2
+11 verbose lock serialport2 C:\Users\Massimo\AppData\Roaming\npm-cache\0df840a6-serialport2.lock
+12 silly lockFile 0df840a6-serialport2 serialport2
+13 silly lockFile 0df840a6-serialport2 serialport2
+14 verbose addNamed [ 'serialport2', '' ]
+15 verbose addNamed [ null, '*' ]
+16 silly lockFile e94970ef-serialport2 serialport2@
+17 verbose lock serialport2@ C:\Users\Massimo\AppData\Roaming\npm-cache\e94970ef-serialport2.lock
+18 silly addNameRange { name: 'serialport2', range: '*', hasData: false }
+19 verbose url raw serialport2
+20 verbose url resolving [ 'https://registry.npmjs.org/', './serialport2' ]
+21 verbose url resolved https://registry.npmjs.org/serialport2
+22 info trying registry request attempt 1 at 08:54:09
+23 http GET https://registry.npmjs.org/serialport2
+24 info retry will retry, error on last attempt: Error: SELF_SIGNED_CERT_IN_CHAIN
+25 info trying registry request attempt 2 at 08:54:19
+26 http GET https://registry.npmjs.org/serialport2
+27 http 200 https://registry.npmjs.org/serialport2
+28 silly registry.get cb [ 200,
+28 silly registry.get   { date: 'Sat, 01 Mar 2014 07:54:22 GMT',
+28 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B)',
+28 silly registry.get     etag: '"9C31YZZ30HGSY3XNVYC1JYGMS"',
+28 silly registry.get     'content-type': 'application/json',
+28 silly registry.get     via: '1.1 varnish',
+28 silly registry.get     'cache-control': 'max-age=1',
+28 silly registry.get     'content-length': '8450',
+28 silly registry.get     'accept-ranges': 'bytes',
+28 silly registry.get     age: '0',
+28 silly registry.get     'x-served-by': 'cache-v36-ASH, cache-fra1231-FRA',
+28 silly registry.get     'x-cache': 'MISS, MISS',
+28 silly registry.get     'x-cache-hits': '0, 0',
+28 silly registry.get     'x-timer': 'S1393660462.514093399,VS0,VS-246,VE-229,VE110',
+28 silly registry.get     vary: 'Accept',
+28 silly registry.get     'keep-alive': 'timeout=10, max=50',
+28 silly registry.get     connection: 'Keep-Alive' } ]
+29 silly addNameRange number 2 { name: 'serialport2', range: '*', hasData: true }
+30 silly addNameRange versions [ 'serialport2',
+30 silly addNameRange   [ '0.0.1', '0.0.2', '0.0.3', '0.0.4', '0.0.5' ] ]
+31 verbose addNamed [ 'serialport2', '0.0.5' ]
+32 verbose addNamed [ '0.0.5', '0.0.5' ]
+33 silly lockFile d5afd329-serialport2-0-0-5 serialport2@0.0.5
+34 verbose lock serialport2@0.0.5 C:\Users\Massimo\AppData\Roaming\npm-cache\d5afd329-serialport2-0-0-5.lock
+35 silly lockFile fd787112-erialport2-serialport2-0-0-5-tgz https://registry.npmjs.org/serialport2/-/serialport2-0.0.5.tgz
+36 verbose lock https://registry.npmjs.org/serialport2/-/serialport2-0.0.5.tgz C:\Users\Massimo\AppData\Roaming\npm-cache\fd787112-erialport2-serialport2-0-0-5-tgz.lock
+37 verbose addRemoteTarball [ 'https://registry.npmjs.org/serialport2/-/serialport2-0.0.5.tgz',
+37 verbose addRemoteTarball   'd74af5ad22e77518c40aa9f5c58586df0d38fe17' ]
+38 info retry fetch attempt 1 at 08:54:20
+39 verbose fetch to= C:\Users\Massimo\AppData\Local\Temp\ConsolePortableTemp\npm-4620-29Ujk8y6\1393660460055-0.20192091283388436\tmp.tgz
+40 http GET https://registry.npmjs.org/serialport2/-/serialport2-0.0.5.tgz
+41 http 200 https://registry.npmjs.org/serialport2/-/serialport2-0.0.5.tgz
+42 verbose tar unpack C:\Users\Massimo\AppData\Local\Temp\ConsolePortableTemp\npm-4620-29Ujk8y6\1393660460055-0.20192091283388436\tmp.tgz
+43 silly lockFile d228b8be-0055-0-20192091283388436-package tar://C:\Users\Massimo\AppData\Local\Temp\ConsolePortableTemp\npm-4620-29Ujk8y6\1393660460055-0.20192091283388436\package
+44 verbose lock tar://C:\Users\Massimo\AppData\Local\Temp\ConsolePortableTemp\npm-4620-29Ujk8y6\1393660460055-0.20192091283388436\package C:\Users\Massimo\AppData\Roaming\npm-cache\d228b8be-0055-0-20192091283388436-package.lock
+45 silly lockFile 80d96c0a-0055-0-20192091283388436-tmp-tgz tar://C:\Users\Massimo\AppData\Local\Temp\ConsolePortableTemp\npm-4620-29Ujk8y6\1393660460055-0.20192091283388436\tmp.tgz
+46 verbose lock tar://C:\Users\Massimo\AppData\Local\Temp\ConsolePortableTemp\npm-4620-29Ujk8y6\1393660460055-0.20192091283388436\tmp.tgz C:\Users\Massimo\AppData\Roaming\npm-cache\80d96c0a-0055-0-20192091283388436-tmp-tgz.lock
+47 silly gunzTarPerm modes [ '755', '644' ]
+48 silly gunzTarPerm extractEntry lib/
+49 silly gunzTarPerm extractEntry lib/serialport.js
+50 silly gunzTarPerm extractEntry test/
+51 silly gunzTarPerm extractEntry test/arduinioEcho/
+52 silly gunzTarPerm extractEntry test/arduinioEcho/arduinioEcho.ino
+53 silly gunzTarPerm extractEntry test/echoTest.js
+54 silly gunzTarPerm extractEntry .idea/
+55 silly gunzTarPerm extractEntry .idea/node-serialport2.iml
+56 silly gunzTarPerm extractEntry .idea/misc.xml
+57 silly gunzTarPerm extractEntry .idea/vcs.xml
+58 silly gunzTarPerm extractEntry .idea/workspace.xml
+59 silly gunzTarPerm extractEntry .idea/.name
+60 silly gunzTarPerm extractEntry .idea/modules.xml
+61 silly gunzTarPerm extractEntry .idea/encodings.xml
+62 silly gunzTarPerm extractEntry .idea/scopes/
+63 silly gunzTarPerm extractEntry .idea/scopes/scope_settings.xml
+64 silly gunzTarPerm extractEntry binding.gyp
+65 silly gunzTarPerm extractEntry src/
+66 silly gunzTarPerm extractEntry src/serialport.cpp
+67 silly gunzTarPerm extractEntry src/win/
+68 silly gunzTarPerm extractEntry src/win/disphelper.h
+69 silly gunzTarPerm extractEntry src/win/disphelper.c
+70 silly gunzTarPerm extractEntry src/serialport_unix.cpp
+71 silly gunzTarPerm extractEntry src/serialport.h
+72 silly gunzTarPerm extractEntry src/serialport_win.cpp
+73 silly gunzTarPerm extractEntry .gitignore
+74 silly gunzTarPerm extractEntry index.js
+75 silly gunzTarPerm extractEntry bin/
+76 silly gunzTarPerm extractEntry bin/serialportList.js
+77 silly gunzTarPerm extractEntry bin/serialportTerminal.js
+78 silly gunzTarPerm extractEntry package.json
+79 silly gunzTarPerm extractEntry README.md
+80 silly lockFile d228b8be-0055-0-20192091283388436-package tar://C:\Users\Massimo\AppData\Local\Temp\ConsolePortableTemp\npm-4620-29Ujk8y6\1393660460055-0.20192091283388436\package
+81 silly lockFile d228b8be-0055-0-20192091283388436-package tar://C:\Users\Massimo\AppData\Local\Temp\ConsolePortableTemp\npm-4620-29Ujk8y6\1393660460055-0.20192091283388436\package
+82 silly lockFile 80d96c0a-0055-0-20192091283388436-tmp-tgz tar://C:\Users\Massimo\AppData\Local\Temp\ConsolePortableTemp\npm-4620-29Ujk8y6\1393660460055-0.20192091283388436\tmp.tgz
+83 silly lockFile 80d96c0a-0055-0-20192091283388436-tmp-tgz tar://C:\Users\Massimo\AppData\Local\Temp\ConsolePortableTemp\npm-4620-29Ujk8y6\1393660460055-0.20192091283388436\tmp.tgz
+84 verbose tar pack [ 'C:\\Users\\Massimo\\AppData\\Roaming\\npm-cache\\serialport2\\0.0.5\\package.tgz',
+84 verbose tar pack   'C:\\Users\\Massimo\\AppData\\Local\\Temp\\ConsolePortableTemp\\npm-4620-29Ujk8y6\\1393660460055-0.20192091283388436\\package' ]
+85 verbose tarball C:\Users\Massimo\AppData\Roaming\npm-cache\serialport2\0.0.5\package.tgz
+86 verbose folder C:\Users\Massimo\AppData\Local\Temp\ConsolePortableTemp\npm-4620-29Ujk8y6\1393660460055-0.20192091283388436\package
+87 silly lockFile d228b8be-0055-0-20192091283388436-package tar://C:\Users\Massimo\AppData\Local\Temp\ConsolePortableTemp\npm-4620-29Ujk8y6\1393660460055-0.20192091283388436\package
+88 verbose lock tar://C:\Users\Massimo\AppData\Local\Temp\ConsolePortableTemp\npm-4620-29Ujk8y6\1393660460055-0.20192091283388436\package C:\Users\Massimo\AppData\Roaming\npm-cache\d228b8be-0055-0-20192091283388436-package.lock
+89 silly lockFile 6ae3e77b-he-serialport2-0-0-5-package-tgz tar://C:\Users\Massimo\AppData\Roaming\npm-cache\serialport2\0.0.5\package.tgz
+90 verbose lock tar://C:\Users\Massimo\AppData\Roaming\npm-cache\serialport2\0.0.5\package.tgz C:\Users\Massimo\AppData\Roaming\npm-cache\6ae3e77b-he-serialport2-0-0-5-package-tgz.lock
+91 silly lockFile d228b8be-0055-0-20192091283388436-package tar://C:\Users\Massimo\AppData\Local\Temp\ConsolePortableTemp\npm-4620-29Ujk8y6\1393660460055-0.20192091283388436\package
+92 silly lockFile d228b8be-0055-0-20192091283388436-package tar://C:\Users\Massimo\AppData\Local\Temp\ConsolePortableTemp\npm-4620-29Ujk8y6\1393660460055-0.20192091283388436\package
+93 silly lockFile 6ae3e77b-he-serialport2-0-0-5-package-tgz tar://C:\Users\Massimo\AppData\Roaming\npm-cache\serialport2\0.0.5\package.tgz
+94 silly lockFile 6ae3e77b-he-serialport2-0-0-5-package-tgz tar://C:\Users\Massimo\AppData\Roaming\npm-cache\serialport2\0.0.5\package.tgz
+95 silly lockFile 49b0a13f--cache-serialport2-0-0-5-package C:\Users\Massimo\AppData\Roaming\npm-cache\serialport2\0.0.5\package
+96 verbose lock C:\Users\Massimo\AppData\Roaming\npm-cache\serialport2\0.0.5\package C:\Users\Massimo\AppData\Roaming\npm-cache\49b0a13f--cache-serialport2-0-0-5-package.lock
+97 silly lockFile 49b0a13f--cache-serialport2-0-0-5-package C:\Users\Massimo\AppData\Roaming\npm-cache\serialport2\0.0.5\package
+98 silly lockFile 49b0a13f--cache-serialport2-0-0-5-package C:\Users\Massimo\AppData\Roaming\npm-cache\serialport2\0.0.5\package
+99 verbose tar unpack C:\Users\Massimo\AppData\Roaming\npm-cache\serialport2\0.0.5\package.tgz
+100 silly lockFile 600bed65--cache-serialport2-0-0-5-package tar://C:\Users\Massimo\AppData\Roaming\npm-cache\serialport2\0.0.5\package
+101 verbose lock tar://C:\Users\Massimo\AppData\Roaming\npm-cache\serialport2\0.0.5\package C:\Users\Massimo\AppData\Roaming\npm-cache\600bed65--cache-serialport2-0-0-5-package.lock
+102 silly lockFile 6ae3e77b-he-serialport2-0-0-5-package-tgz tar://C:\Users\Massimo\AppData\Roaming\npm-cache\serialport2\0.0.5\package.tgz
+103 verbose lock tar://C:\Users\Massimo\AppData\Roaming\npm-cache\serialport2\0.0.5\package.tgz C:\Users\Massimo\AppData\Roaming\npm-cache\6ae3e77b-he-serialport2-0-0-5-package-tgz.lock
+104 silly gunzTarPerm modes [ '755', '644' ]
+105 silly gunzTarPerm extractEntry package.json
+106 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+107 silly gunzTarPerm extractEntry .npmignore
+108 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+109 silly gunzTarPerm extractEntry README.md
+110 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+111 silly gunzTarPerm extractEntry index.js
+112 silly gunzTarPerm modified mode [ 'index.js', 438, 420 ]
+113 silly gunzTarPerm extractEntry bin/serialportList.js
+114 silly gunzTarPerm modified mode [ 'bin/serialportList.js', 438, 420 ]
+115 silly gunzTarPerm extractEntry bin/serialportTerminal.js
+116 silly gunzTarPerm modified mode [ 'bin/serialportTerminal.js', 438, 420 ]
+117 silly gunzTarPerm extractEntry binding.gyp
+118 silly gunzTarPerm modified mode [ 'binding.gyp', 438, 420 ]
+119 silly gunzTarPerm extractEntry lib/serialport.js
+120 silly gunzTarPerm modified mode [ 'lib/serialport.js', 438, 420 ]
+121 silly gunzTarPerm extractEntry src/serialport.cpp
+122 silly gunzTarPerm modified mode [ 'src/serialport.cpp', 438, 420 ]
+123 silly gunzTarPerm extractEntry src/serialport.h
+124 silly gunzTarPerm modified mode [ 'src/serialport.h', 438, 420 ]
+125 silly gunzTarPerm extractEntry src/serialport_unix.cpp
+126 silly gunzTarPerm modified mode [ 'src/serialport_unix.cpp', 438, 420 ]
+127 silly gunzTarPerm extractEntry src/serialport_win.cpp
+128 silly gunzTarPerm modified mode [ 'src/serialport_win.cpp', 438, 420 ]
+129 silly gunzTarPerm extractEntry src/win/disphelper.c
+130 silly gunzTarPerm modified mode [ 'src/win/disphelper.c', 438, 420 ]
+131 silly gunzTarPerm extractEntry src/win/disphelper.h
+132 silly gunzTarPerm modified mode [ 'src/win/disphelper.h', 438, 420 ]
+133 silly gunzTarPerm extractEntry test/echoTest.js
+134 silly gunzTarPerm modified mode [ 'test/echoTest.js', 438, 420 ]
+135 silly gunzTarPerm extractEntry test/arduinioEcho/arduinioEcho.ino
+136 silly gunzTarPerm modified mode [ 'test/arduinioEcho/arduinioEcho.ino', 438, 420 ]
+137 silly lockFile 600bed65--cache-serialport2-0-0-5-package tar://C:\Users\Massimo\AppData\Roaming\npm-cache\serialport2\0.0.5\package
+138 silly lockFile 600bed65--cache-serialport2-0-0-5-package tar://C:\Users\Massimo\AppData\Roaming\npm-cache\serialport2\0.0.5\package
+139 silly lockFile 6ae3e77b-he-serialport2-0-0-5-package-tgz tar://C:\Users\Massimo\AppData\Roaming\npm-cache\serialport2\0.0.5\package.tgz
+140 silly lockFile 6ae3e77b-he-serialport2-0-0-5-package-tgz tar://C:\Users\Massimo\AppData\Roaming\npm-cache\serialport2\0.0.5\package.tgz
+141 verbose chmod C:\Users\Massimo\AppData\Roaming\npm-cache\serialport2\0.0.5\package.tgz 644
+142 silly chown skipping for windows C:\Users\Massimo\AppData\Roaming\npm-cache\serialport2\0.0.5\package.tgz
+143 silly lockFile fd787112-erialport2-serialport2-0-0-5-tgz https://registry.npmjs.org/serialport2/-/serialport2-0.0.5.tgz
+144 silly lockFile fd787112-erialport2-serialport2-0-0-5-tgz https://registry.npmjs.org/serialport2/-/serialport2-0.0.5.tgz
+145 silly lockFile d5afd329-serialport2-0-0-5 serialport2@0.0.5
+146 silly lockFile d5afd329-serialport2-0-0-5 serialport2@0.0.5
+147 silly lockFile e94970ef-serialport2 serialport2@
+148 silly lockFile e94970ef-serialport2 serialport2@
+149 silly resolved [ { name: 'serialport2',
+149 silly resolved     description: 'node.js serial port driver.',
+149 silly resolved     author: { name: 'Joe Ferner', email: 'joe.ferner@nearinfinity.com' },
+149 silly resolved     keywords: [ 'serial', 'serialport', 'com', 'comport', 'arduino' ],
+149 silly resolved     version: '0.0.5',
+149 silly resolved     engines: { node: '>=0.6.0' },
+149 silly resolved     maintainers: [ [Object] ],
+149 silly resolved     bugs: { url: 'https://github.com/joeferner/node-serialport2/issues' },
+149 silly resolved     license: 'MIT',
+149 silly resolved     repository:
+149 silly resolved      { type: 'git',
+149 silly resolved        url: 'https://github.com/joeferner/node-serialport2.git' },
+149 silly resolved     dependencies:
+149 silly resolved      { bindings: '0.3.0',
+149 silly resolved        async: '0.1.18',
+149 silly resolved        sf: '0.1.3',
+149 silly resolved        optimist: '~0.3.4' },
+149 silly resolved     devDependencies: { nodeunit: '~0.7.4' },
+149 silly resolved     scripts:
+149 silly resolved      { test: 'node ./node_modules/nodeunit/bin/nodeunit test',
+149 silly resolved        install: 'node-gyp rebuild' },
+149 silly resolved     main: './index.js',
+149 silly resolved     bin:
+149 silly resolved      { serialportlist: './bin/serialportList.js',
+149 silly resolved        serialportterm: './bin/serialportTerminal.js' },
+149 silly resolved     gypfile: true,
+149 silly resolved     readme: '# SerialPort2\n\nNode.js serial port driver. Works on Windows, OSX, and linux.\n\n# Install\n\n```\nnpm install serialport2\n```\n\n**Note for windows users.** If you are using Node v0.6.x you will need to have Python 2.7 installed.\nSee [node-gyp](https://github.com/TooTallNate/node-gyp) for instruction on getting a working node-gyp\nenvironment.\n\n# Quick Example\n\n```javascript\nvar SerialPort = require(\'serialport2\').SerialPort;\nvar port = new SerialPort();\n\nport.on(\'data\', function(data) {\n  console.log(data.toString());\n});\n\nport.on(\'error\', function(err) {\n  console.log(err);\n});\n\nport.open(\'COM4\', {\n  baudRate: 9600,\n  dataBits: 8,\n  parity: \'none\',\n  stopBits: 1\n}, function(err) {\n  port.write("hello world");\n  port.close();\n});\n```\n\n```javascript\nvar sp = require(\'../\');\nsp.list(function(err, ports) {\n  console.log(ports);\n});\n```\n\n# API\n\n## SerialPort\n\n### new SerialPort()\n\nCreates the serial port.\n\n### open(portName, [options], [callback])\n\nOpen the serial port.\n\n__Arguments__\n\n  * portName - The name of the port to open. Example: Windows \'COM1\', Linux \'/dev/ttyUSB0\'.\n  * options - Options for open\n    * baudRate - The baud rate [default: 9600]\n    * dataBits - The data bits [default: 8]\n    * parity - The parity, can be (none, odd, even) [default: \'none\']\n    * stopBits - The number of stop bits, can be (1, 1.5, 2) [default: 1]\n    * flowControl - Enable flow control (true, false) [default: false]\n  * callback(err) - Callback called after opening the port.\n\n### write(buffer, [callback])\n\nWrites data to the serial port.\n\n__Arguments__\n\n  * buffer - This can be a node Buffer object or a string.\n  * callback(err, byteWritten) - Callback called after writing bytes.\n\n### close(callback)\n\nCloses the serial port.\n\n__Arguments__\n\n  * callback(err) - Callback called after the port is closed.\n\n### Event: data\n\nEvent emitted by SerialPort when data is available. The first argument will contain a Buffer with the data.\n\n### Event: error\n\nEvent emitted by SerialPort if an error occurs. The first argument will contain the error.\n\n## list(callback)\n\nLists the serial ports on the machine.\n\n__Arguments__\n\n  * callback(err, ports) - Callback called after the list is retrieved.\n',
+149 silly resolved     readmeFilename: 'README.md',
+149 silly resolved     _id: 'serialport2@0.0.5',
+149 silly resolved     dist: { shasum: '8496d15424e013b6e2887257c6ce66b791902ea9' },
+149 silly resolved     _from: 'serialport2@',
+149 silly resolved     _resolved: 'https://registry.npmjs.org/serialport2/-/serialport2-0.0.5.tgz' } ]
+150 info install serialport2@0.0.5 into c:\Dev\NodeJs\git\massimobiagioli\nodejs\arduino-ledRGB
+151 info installOne serialport2@0.0.5
+152 info c:\Dev\NodeJs\git\massimobiagioli\nodejs\arduino-ledRGB\node_modules\serialport2 unbuild
+153 verbose tar unpack C:\Users\Massimo\AppData\Roaming\npm-cache\serialport2\0.0.5\package.tgz
+154 silly lockFile c165be63--ledRGB-node-modules-serialport2 tar://c:\Dev\NodeJs\git\massimobiagioli\nodejs\arduino-ledRGB\node_modules\serialport2
+155 verbose lock tar://c:\Dev\NodeJs\git\massimobiagioli\nodejs\arduino-ledRGB\node_modules\serialport2 C:\Users\Massimo\AppData\Roaming\npm-cache\c165be63--ledRGB-node-modules-serialport2.lock
+156 silly lockFile 6ae3e77b-he-serialport2-0-0-5-package-tgz tar://C:\Users\Massimo\AppData\Roaming\npm-cache\serialport2\0.0.5\package.tgz
+157 verbose lock tar://C:\Users\Massimo\AppData\Roaming\npm-cache\serialport2\0.0.5\package.tgz C:\Users\Massimo\AppData\Roaming\npm-cache\6ae3e77b-he-serialport2-0-0-5-package-tgz.lock
+158 silly gunzTarPerm modes [ '755', '644' ]
+159 silly gunzTarPerm extractEntry package.json
+160 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+161 silly gunzTarPerm extractEntry .npmignore
+162 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+163 silly gunzTarPerm extractEntry README.md
+164 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+165 silly gunzTarPerm extractEntry index.js
+166 silly gunzTarPerm modified mode [ 'index.js', 438, 420 ]
+167 silly gunzTarPerm extractEntry bin/serialportList.js
+168 silly gunzTarPerm modified mode [ 'bin/serialportList.js', 438, 420 ]
+169 silly gunzTarPerm extractEntry bin/serialportTerminal.js
+170 silly gunzTarPerm modified mode [ 'bin/serialportTerminal.js', 438, 420 ]
+171 silly gunzTarPerm extractEntry binding.gyp
+172 silly gunzTarPerm modified mode [ 'binding.gyp', 438, 420 ]
+173 silly gunzTarPerm extractEntry lib/serialport.js
+174 silly gunzTarPerm modified mode [ 'lib/serialport.js', 438, 420 ]
+175 silly gunzTarPerm extractEntry src/serialport.cpp
+176 silly gunzTarPerm modified mode [ 'src/serialport.cpp', 438, 420 ]
+177 silly gunzTarPerm extractEntry src/serialport.h
+178 silly gunzTarPerm modified mode [ 'src/serialport.h', 438, 420 ]
+179 silly gunzTarPerm extractEntry src/serialport_unix.cpp
+180 silly gunzTarPerm modified mode [ 'src/serialport_unix.cpp', 438, 420 ]
+181 silly gunzTarPerm extractEntry src/serialport_win.cpp
+182 silly gunzTarPerm modified mode [ 'src/serialport_win.cpp', 438, 420 ]
+183 silly gunzTarPerm extractEntry src/win/disphelper.c
+184 silly gunzTarPerm modified mode [ 'src/win/disphelper.c', 438, 420 ]
+185 silly gunzTarPerm extractEntry src/win/disphelper.h
+186 silly gunzTarPerm modified mode [ 'src/win/disphelper.h', 438, 420 ]
+187 silly gunzTarPerm extractEntry test/echoTest.js
+188 silly gunzTarPerm modified mode [ 'test/echoTest.js', 438, 420 ]
+189 silly gunzTarPerm extractEntry test/arduinioEcho/arduinioEcho.ino
+190 silly gunzTarPerm modified mode [ 'test/arduinioEcho/arduinioEcho.ino', 438, 420 ]
+191 silly lockFile c165be63--ledRGB-node-modules-serialport2 tar://c:\Dev\NodeJs\git\massimobiagioli\nodejs\arduino-ledRGB\node_modules\serialport2
+192 silly lockFile c165be63--ledRGB-node-modules-serialport2 tar://c:\Dev\NodeJs\git\massimobiagioli\nodejs\arduino-ledRGB\node_modules\serialport2
+193 silly lockFile 6ae3e77b-he-serialport2-0-0-5-package-tgz tar://C:\Users\Massimo\AppData\Roaming\npm-cache\serialport2\0.0.5\package.tgz
+194 silly lockFile 6ae3e77b-he-serialport2-0-0-5-package-tgz tar://C:\Users\Massimo\AppData\Roaming\npm-cache\serialport2\0.0.5\package.tgz
+195 info preinstall serialport2@0.0.5
+196 verbose readDependencies using package.json deps
+197 verbose readDependencies using package.json deps
+198 verbose cache add [ 'bindings@0.3.0', null ]
+199 verbose cache add name=undefined spec="bindings@0.3.0" args=["bindings@0.3.0",null]
+200 verbose parsed url { protocol: null,
+200 verbose parsed url   slashes: null,
+200 verbose parsed url   auth: null,
+200 verbose parsed url   host: null,
+200 verbose parsed url   port: null,
+200 verbose parsed url   hostname: null,
+200 verbose parsed url   hash: null,
+200 verbose parsed url   search: null,
+200 verbose parsed url   query: null,
+200 verbose parsed url   pathname: 'bindings@0.3.0',
+200 verbose parsed url   path: 'bindings@0.3.0',
+200 verbose parsed url   href: 'bindings@0.3.0' }
+201 verbose cache add name="bindings" spec="0.3.0" args=["bindings","0.3.0"]
+202 verbose parsed url { protocol: null,
+202 verbose parsed url   slashes: null,
+202 verbose parsed url   auth: null,
+202 verbose parsed url   host: null,
+202 verbose parsed url   port: null,
+202 verbose parsed url   hostname: null,
+202 verbose parsed url   hash: null,
+202 verbose parsed url   search: null,
+202 verbose parsed url   query: null,
+202 verbose parsed url   pathname: '0.3.0',
+202 verbose parsed url   path: '0.3.0',
+202 verbose parsed url   href: '0.3.0' }
+203 verbose addNamed [ 'bindings', '0.3.0' ]
+204 verbose addNamed [ '0.3.0', '0.3.0' ]
+205 silly lockFile a060d42a-bindings-0-3-0 bindings@0.3.0
+206 verbose lock bindings@0.3.0 C:\Users\Massimo\AppData\Roaming\npm-cache\a060d42a-bindings-0-3-0.lock
+207 verbose cache add [ 'async@0.1.18', null ]
+208 verbose cache add name=undefined spec="async@0.1.18" args=["async@0.1.18",null]
+209 verbose parsed url { protocol: null,
+209 verbose parsed url   slashes: null,
+209 verbose parsed url   auth: null,
+209 verbose parsed url   host: null,
+209 verbose parsed url   port: null,
+209 verbose parsed url   hostname: null,
+209 verbose parsed url   hash: null,
+209 verbose parsed url   search: null,
+209 verbose parsed url   query: null,
+209 verbose parsed url   pathname: 'async@0.1.18',
+209 verbose parsed url   path: 'async@0.1.18',
+209 verbose parsed url   href: 'async@0.1.18' }
+210 verbose cache add name="async" spec="0.1.18" args=["async","0.1.18"]
+211 verbose parsed url { protocol: null,
+211 verbose parsed url   slashes: null,
+211 verbose parsed url   auth: null,
+211 verbose parsed url   host: null,
+211 verbose parsed url   port: null,
+211 verbose parsed url   hostname: null,
+211 verbose parsed url   hash: null,
+211 verbose parsed url   search: null,
+211 verbose parsed url   query: null,
+211 verbose parsed url   pathname: '0.1.18',
+211 verbose parsed url   path: '0.1.18',
+211 verbose parsed url   href: '0.1.18' }
+212 verbose addNamed [ 'async', '0.1.18' ]
+213 verbose addNamed [ '0.1.18', '0.1.18' ]
+214 silly lockFile b86dcd49-async-0-1-18 async@0.1.18
+215 verbose lock async@0.1.18 C:\Users\Massimo\AppData\Roaming\npm-cache\b86dcd49-async-0-1-18.lock
+216 verbose cache add [ 'sf@0.1.3', null ]
+217 verbose cache add name=undefined spec="sf@0.1.3" args=["sf@0.1.3",null]
+218 verbose parsed url { protocol: null,
+218 verbose parsed url   slashes: null,
+218 verbose parsed url   auth: null,
+218 verbose parsed url   host: null,
+218 verbose parsed url   port: null,
+218 verbose parsed url   hostname: null,
+218 verbose parsed url   hash: null,
+218 verbose parsed url   search: null,
+218 verbose parsed url   query: null,
+218 verbose parsed url   pathname: 'sf@0.1.3',
+218 verbose parsed url   path: 'sf@0.1.3',
+218 verbose parsed url   href: 'sf@0.1.3' }
+219 verbose cache add name="sf" spec="0.1.3" args=["sf","0.1.3"]
+220 verbose parsed url { protocol: null,
+220 verbose parsed url   slashes: null,
+220 verbose parsed url   auth: null,
+220 verbose parsed url   host: null,
+220 verbose parsed url   port: null,
+220 verbose parsed url   hostname: null,
+220 verbose parsed url   hash: null,
+220 verbose parsed url   search: null,
+220 verbose parsed url   query: null,
+220 verbose parsed url   pathname: '0.1.3',
+220 verbose parsed url   path: '0.1.3',
+220 verbose parsed url   href: '0.1.3' }
+221 verbose addNamed [ 'sf', '0.1.3' ]
+222 verbose addNamed [ '0.1.3', '0.1.3' ]
+223 silly lockFile 444a19d3-sf-0-1-3 sf@0.1.3
+224 verbose lock sf@0.1.3 C:\Users\Massimo\AppData\Roaming\npm-cache\444a19d3-sf-0-1-3.lock
+225 verbose cache add [ 'optimist@~0.3.4', null ]
+226 verbose cache add name=undefined spec="optimist@~0.3.4" args=["optimist@~0.3.4",null]
+227 verbose parsed url { protocol: null,
+227 verbose parsed url   slashes: null,
+227 verbose parsed url   auth: null,
+227 verbose parsed url   host: null,
+227 verbose parsed url   port: null,
+227 verbose parsed url   hostname: null,
+227 verbose parsed url   hash: null,
+227 verbose parsed url   search: null,
+227 verbose parsed url   query: null,
+227 verbose parsed url   pathname: 'optimist@~0.3.4',
+227 verbose parsed url   path: 'optimist@~0.3.4',
+227 verbose parsed url   href: 'optimist@~0.3.4' }
+228 verbose cache add name="optimist" spec="~0.3.4" args=["optimist","~0.3.4"]
+229 verbose parsed url { protocol: null,
+229 verbose parsed url   slashes: null,
+229 verbose parsed url   auth: null,
+229 verbose parsed url   host: null,
+229 verbose parsed url   port: null,
+229 verbose parsed url   hostname: null,
+229 verbose parsed url   hash: null,
+229 verbose parsed url   search: null,
+229 verbose parsed url   query: null,
+229 verbose parsed url   pathname: '~0.3.4',
+229 verbose parsed url   path: '~0.3.4',
+229 verbose parsed url   href: '~0.3.4' }
+230 verbose addNamed [ 'optimist', '~0.3.4' ]
+231 verbose addNamed [ null, '>=0.3.4-0 <0.4.0-0' ]
+232 silly lockFile 094c60bd-optimist-0-3-4 optimist@~0.3.4
+233 verbose lock optimist@~0.3.4 C:\Users\Massimo\AppData\Roaming\npm-cache\094c60bd-optimist-0-3-4.lock
+234 verbose url raw bindings/0.3.0
+235 verbose url resolving [ 'https://registry.npmjs.org/', './bindings/0.3.0' ]
+236 verbose url resolved https://registry.npmjs.org/bindings/0.3.0
+237 info trying registry request attempt 1 at 08:54:20
+238 http GET https://registry.npmjs.org/bindings/0.3.0
+239 verbose url raw sf/0.1.3
+240 verbose url resolving [ 'https://registry.npmjs.org/', './sf/0.1.3' ]
+241 verbose url resolved https://registry.npmjs.org/sf/0.1.3
+242 info trying registry request attempt 1 at 08:54:20
+243 http GET https://registry.npmjs.org/sf/0.1.3
+244 silly addNameRange { name: 'optimist', range: '>=0.3.4-0 <0.4.0-0', hasData: false }
+245 verbose url raw optimist
+246 verbose url resolving [ 'https://registry.npmjs.org/', './optimist' ]
+247 verbose url resolved https://registry.npmjs.org/optimist
+248 info trying registry request attempt 1 at 08:54:20
+249 verbose etag "ADVEQMUNIEXVWSJKIVVKGX6K1"
+250 http GET https://registry.npmjs.org/optimist
+251 verbose url raw async/0.1.18
+252 verbose url resolving [ 'https://registry.npmjs.org/', './async/0.1.18' ]
+253 verbose url resolved https://registry.npmjs.org/async/0.1.18
+254 info trying registry request attempt 1 at 08:54:21
+255 verbose etag "F0SLHG6GWZV90R1I3YTV1DB50"
+256 http GET https://registry.npmjs.org/async/0.1.18
+257 info retry will retry, error on last attempt: Error: SELF_SIGNED_CERT_IN_CHAIN
+258 info retry will retry, error on last attempt: Error: SELF_SIGNED_CERT_IN_CHAIN
+259 info retry will retry, error on last attempt: Error: SELF_SIGNED_CERT_IN_CHAIN
+260 info retry will retry, error on last attempt: Error: SELF_SIGNED_CERT_IN_CHAIN
+261 info trying registry request attempt 2 at 08:54:31
+262 http GET https://registry.npmjs.org/bindings/0.3.0
+263 info trying registry request attempt 2 at 08:54:31
+264 http GET https://registry.npmjs.org/sf/0.1.3
+265 info trying registry request attempt 2 at 08:54:31
+266 verbose etag "ADVEQMUNIEXVWSJKIVVKGX6K1"
+267 http GET https://registry.npmjs.org/optimist
+268 info trying registry request attempt 2 at 08:54:31
+269 verbose etag "F0SLHG6GWZV90R1I3YTV1DB50"
+270 http GET https://registry.npmjs.org/async/0.1.18
+271 info retry will retry, error on last attempt: Error: SELF_SIGNED_CERT_IN_CHAIN
+272 info retry will retry, error on last attempt: Error: SELF_SIGNED_CERT_IN_CHAIN
+273 http 200 https://registry.npmjs.org/async/0.1.18
+274 silly registry.get cb [ 200,
+274 silly registry.get   { date: 'Sat, 01 Mar 2014 07:54:34 GMT',
+274 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B)',
+274 silly registry.get     etag: '"74VVUOZSHC5XH0F9EYMNYH3L8"',
+274 silly registry.get     'content-type': 'application/json',
+274 silly registry.get     via: '1.1 varnish',
+274 silly registry.get     'cache-control': 'max-age=1',
+274 silly registry.get     'content-length': '915',
+274 silly registry.get     'accept-ranges': 'bytes',
+274 silly registry.get     age: '877062',
+274 silly registry.get     'x-served-by': 'cache-v36-ASH, cache-fra1231-FRA',
+274 silly registry.get     'x-cache': 'HIT, MISS',
+274 silly registry.get     'x-cache-hits': '1, 0',
+274 silly registry.get     'x-timer': 'S1393660473.960516453,VS0,VS-246,VE-246,VE93',
+274 silly registry.get     vary: 'Accept',
+274 silly registry.get     'keep-alive': 'timeout=10, max=50',
+274 silly registry.get     connection: 'Keep-Alive' } ]
+275 silly lockFile fe7f89e7-npmjs-org-async-async-0-1-18-tgz https://registry.npmjs.org/async/-/async-0.1.18.tgz
+276 verbose lock https://registry.npmjs.org/async/-/async-0.1.18.tgz C:\Users\Massimo\AppData\Roaming\npm-cache\fe7f89e7-npmjs-org-async-async-0-1-18-tgz.lock
+277 verbose addRemoteTarball [ 'https://registry.npmjs.org/async/-/async-0.1.18.tgz',
+277 verbose addRemoteTarball   'c59c923920b76d5bf23248c04433920c4d45086a' ]
+278 info retry fetch attempt 1 at 08:54:31
+279 verbose fetch to= C:\Users\Massimo\AppData\Local\Temp\ConsolePortableTemp\npm-4620-29Ujk8y6\1393660471463-0.03979556611739099\tmp.tgz
+280 http GET https://registry.npmjs.org/async/-/async-0.1.18.tgz
+281 http 200 https://registry.npmjs.org/sf/0.1.3
+282 silly registry.get cb [ 200,
+282 silly registry.get   { date: 'Sat, 01 Mar 2014 07:54:34 GMT',
+282 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B)',
+282 silly registry.get     etag: '"782BJTBC7PI7USYHJS5FMB69U"',
+282 silly registry.get     'content-type': 'application/json',
+282 silly registry.get     via: '1.1 varnish',
+282 silly registry.get     'cache-control': 'max-age=1',
+282 silly registry.get     'content-length': '891',
+282 silly registry.get     'accept-ranges': 'bytes',
+282 silly registry.get     age: '0',
+282 silly registry.get     'x-served-by': 'cache-v42-ASH, cache-fra1231-FRA',
+282 silly registry.get     'x-cache': 'MISS, MISS',
+282 silly registry.get     'x-cache-hits': '0, 0',
+282 silly registry.get     'x-timer': 'S1393660473.906256437,VS0,VS-193,VE-106,VE186',
+282 silly registry.get     vary: 'Accept',
+282 silly registry.get     'keep-alive': 'timeout=10, max=50',
+282 silly registry.get     connection: 'Keep-Alive' } ]
+283 silly lockFile c2701f1d-gistry-npmjs-org-sf-sf-0-1-3-tgz https://registry.npmjs.org/sf/-/sf-0.1.3.tgz
+284 verbose lock https://registry.npmjs.org/sf/-/sf-0.1.3.tgz C:\Users\Massimo\AppData\Roaming\npm-cache\c2701f1d-gistry-npmjs-org-sf-sf-0-1-3-tgz.lock
+285 verbose addRemoteTarball [ 'https://registry.npmjs.org/sf/-/sf-0.1.3.tgz',
+285 verbose addRemoteTarball   'a5d246148241ace3788447f6a9a95b564762c354' ]
+286 info retry fetch attempt 1 at 08:54:31
+287 verbose fetch to= C:\Users\Massimo\AppData\Local\Temp\ConsolePortableTemp\npm-4620-29Ujk8y6\1393660471502-0.866255259141326\tmp.tgz
+288 http GET https://registry.npmjs.org/sf/-/sf-0.1.3.tgz
+289 error fetch failed https://registry.npmjs.org/async/-/async-0.1.18.tgz
+290 info retry will retry, error on last attempt: Error: SELF_SIGNED_CERT_IN_CHAIN
+291 error fetch failed https://registry.npmjs.org/sf/-/sf-0.1.3.tgz
+292 info retry will retry, error on last attempt: Error: SELF_SIGNED_CERT_IN_CHAIN
+293 info retry fetch attempt 2 at 08:54:41
+294 verbose fetch to= C:\Users\Massimo\AppData\Local\Temp\ConsolePortableTemp\npm-4620-29Ujk8y6\1393660471463-0.03979556611739099\tmp.tgz
+295 http GET https://registry.npmjs.org/async/-/async-0.1.18.tgz
+296 info retry fetch attempt 2 at 08:54:41
+297 verbose fetch to= C:\Users\Massimo\AppData\Local\Temp\ConsolePortableTemp\npm-4620-29Ujk8y6\1393660471502-0.866255259141326\tmp.tgz
+298 http GET https://registry.npmjs.org/sf/-/sf-0.1.3.tgz
+299 http 200 https://registry.npmjs.org/async/-/async-0.1.18.tgz
+300 verbose tar unpack C:\Users\Massimo\AppData\Local\Temp\ConsolePortableTemp\npm-4620-29Ujk8y6\1393660471463-0.03979556611739099\tmp.tgz
+301 silly lockFile f26edd5d-1463-0-03979556611739099-package tar://C:\Users\Massimo\AppData\Local\Temp\ConsolePortableTemp\npm-4620-29Ujk8y6\1393660471463-0.03979556611739099\package
+302 verbose lock tar://C:\Users\Massimo\AppData\Local\Temp\ConsolePortableTemp\npm-4620-29Ujk8y6\1393660471463-0.03979556611739099\package C:\Users\Massimo\AppData\Roaming\npm-cache\f26edd5d-1463-0-03979556611739099-package.lock
+303 silly lockFile 7dd5eb27-1463-0-03979556611739099-tmp-tgz tar://C:\Users\Massimo\AppData\Local\Temp\ConsolePortableTemp\npm-4620-29Ujk8y6\1393660471463-0.03979556611739099\tmp.tgz
+304 verbose lock tar://C:\Users\Massimo\AppData\Local\Temp\ConsolePortableTemp\npm-4620-29Ujk8y6\1393660471463-0.03979556611739099\tmp.tgz C:\Users\Massimo\AppData\Roaming\npm-cache\7dd5eb27-1463-0-03979556611739099-tmp-tgz.lock
+305 silly gunzTarPerm modes [ '755', '644' ]
+306 silly gunzTarPerm extractEntry README.md
+307 silly gunzTarPerm extractEntry index.js
+308 silly gunzTarPerm extractEntry .npmignore
+309 silly gunzTarPerm extractEntry Makefile
+310 silly gunzTarPerm extractEntry package.json
+311 silly gunzTarPerm extractEntry lib/
+312 silly gunzTarPerm extractEntry lib/async.js
+313 silly gunzTarPerm extractEntry LICENSE
+314 silly gunzTarPerm extractEntry .gitmodules
+315 silly lockFile f26edd5d-1463-0-03979556611739099-package tar://C:\Users\Massimo\AppData\Local\Temp\ConsolePortableTemp\npm-4620-29Ujk8y6\1393660471463-0.03979556611739099\package
+316 silly lockFile f26edd5d-1463-0-03979556611739099-package tar://C:\Users\Massimo\AppData\Local\Temp\ConsolePortableTemp\npm-4620-29Ujk8y6\1393660471463-0.03979556611739099\package
+317 silly lockFile 7dd5eb27-1463-0-03979556611739099-tmp-tgz tar://C:\Users\Massimo\AppData\Local\Temp\ConsolePortableTemp\npm-4620-29Ujk8y6\1393660471463-0.03979556611739099\tmp.tgz
+318 silly lockFile 7dd5eb27-1463-0-03979556611739099-tmp-tgz tar://C:\Users\Massimo\AppData\Local\Temp\ConsolePortableTemp\npm-4620-29Ujk8y6\1393660471463-0.03979556611739099\tmp.tgz
+319 verbose tar pack [ 'C:\\Users\\Massimo\\AppData\\Roaming\\npm-cache\\async\\0.1.18\\package.tgz',
+319 verbose tar pack   'C:\\Users\\Massimo\\AppData\\Local\\Temp\\ConsolePortableTemp\\npm-4620-29Ujk8y6\\1393660471463-0.03979556611739099\\package' ]
+320 verbose tarball C:\Users\Massimo\AppData\Roaming\npm-cache\async\0.1.18\package.tgz
+321 verbose folder C:\Users\Massimo\AppData\Local\Temp\ConsolePortableTemp\npm-4620-29Ujk8y6\1393660471463-0.03979556611739099\package
+322 silly lockFile f26edd5d-1463-0-03979556611739099-package tar://C:\Users\Massimo\AppData\Local\Temp\ConsolePortableTemp\npm-4620-29Ujk8y6\1393660471463-0.03979556611739099\package
+323 verbose lock tar://C:\Users\Massimo\AppData\Local\Temp\ConsolePortableTemp\npm-4620-29Ujk8y6\1393660471463-0.03979556611739099\package C:\Users\Massimo\AppData\Roaming\npm-cache\f26edd5d-1463-0-03979556611739099-package.lock
+324 silly lockFile 2314a63b-m-cache-async-0-1-18-package-tgz tar://C:\Users\Massimo\AppData\Roaming\npm-cache\async\0.1.18\package.tgz
+325 verbose lock tar://C:\Users\Massimo\AppData\Roaming\npm-cache\async\0.1.18\package.tgz C:\Users\Massimo\AppData\Roaming\npm-cache\2314a63b-m-cache-async-0-1-18-package-tgz.lock
+326 silly lockFile f26edd5d-1463-0-03979556611739099-package tar://C:\Users\Massimo\AppData\Local\Temp\ConsolePortableTemp\npm-4620-29Ujk8y6\1393660471463-0.03979556611739099\package
+327 silly lockFile f26edd5d-1463-0-03979556611739099-package tar://C:\Users\Massimo\AppData\Local\Temp\ConsolePortableTemp\npm-4620-29Ujk8y6\1393660471463-0.03979556611739099\package
+328 silly lockFile 2314a63b-m-cache-async-0-1-18-package-tgz tar://C:\Users\Massimo\AppData\Roaming\npm-cache\async\0.1.18\package.tgz
+329 silly lockFile 2314a63b-m-cache-async-0-1-18-package-tgz tar://C:\Users\Massimo\AppData\Roaming\npm-cache\async\0.1.18\package.tgz
+330 silly lockFile bc4b968f-g-npm-cache-async-0-1-18-package C:\Users\Massimo\AppData\Roaming\npm-cache\async\0.1.18\package
+331 verbose lock C:\Users\Massimo\AppData\Roaming\npm-cache\async\0.1.18\package C:\Users\Massimo\AppData\Roaming\npm-cache\bc4b968f-g-npm-cache-async-0-1-18-package.lock
+332 silly lockFile bc4b968f-g-npm-cache-async-0-1-18-package C:\Users\Massimo\AppData\Roaming\npm-cache\async\0.1.18\package
+333 silly lockFile bc4b968f-g-npm-cache-async-0-1-18-package C:\Users\Massimo\AppData\Roaming\npm-cache\async\0.1.18\package
+334 verbose tar unpack C:\Users\Massimo\AppData\Roaming\npm-cache\async\0.1.18\package.tgz
+335 silly lockFile 6f98dbc4-g-npm-cache-async-0-1-18-package tar://C:\Users\Massimo\AppData\Roaming\npm-cache\async\0.1.18\package
+336 verbose lock tar://C:\Users\Massimo\AppData\Roaming\npm-cache\async\0.1.18\package C:\Users\Massimo\AppData\Roaming\npm-cache\6f98dbc4-g-npm-cache-async-0-1-18-package.lock
+337 silly lockFile 2314a63b-m-cache-async-0-1-18-package-tgz tar://C:\Users\Massimo\AppData\Roaming\npm-cache\async\0.1.18\package.tgz
+338 verbose lock tar://C:\Users\Massimo\AppData\Roaming\npm-cache\async\0.1.18\package.tgz C:\Users\Massimo\AppData\Roaming\npm-cache\2314a63b-m-cache-async-0-1-18-package-tgz.lock
+339 silly gunzTarPerm modes [ '755', '644' ]
+340 silly gunzTarPerm extractEntry package.json
+341 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+342 silly gunzTarPerm extractEntry .npmignore
+343 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+344 silly gunzTarPerm extractEntry README.md
+345 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+346 silly gunzTarPerm extractEntry LICENSE
+347 silly gunzTarPerm modified mode [ 'LICENSE', 438, 420 ]
+348 silly gunzTarPerm extractEntry index.js
+349 silly gunzTarPerm modified mode [ 'index.js', 438, 420 ]
+350 silly gunzTarPerm extractEntry .gitmodules
+351 silly gunzTarPerm modified mode [ '.gitmodules', 438, 420 ]
+352 silly gunzTarPerm extractEntry lib/async.js
+353 silly gunzTarPerm modified mode [ 'lib/async.js', 438, 420 ]
+354 silly gunzTarPerm extractEntry Makefile
+355 silly gunzTarPerm modified mode [ 'Makefile', 438, 420 ]
+356 silly lockFile 6f98dbc4-g-npm-cache-async-0-1-18-package tar://C:\Users\Massimo\AppData\Roaming\npm-cache\async\0.1.18\package
+357 silly lockFile 6f98dbc4-g-npm-cache-async-0-1-18-package tar://C:\Users\Massimo\AppData\Roaming\npm-cache\async\0.1.18\package
+358 silly lockFile 2314a63b-m-cache-async-0-1-18-package-tgz tar://C:\Users\Massimo\AppData\Roaming\npm-cache\async\0.1.18\package.tgz
+359 silly lockFile 2314a63b-m-cache-async-0-1-18-package-tgz tar://C:\Users\Massimo\AppData\Roaming\npm-cache\async\0.1.18\package.tgz
+360 verbose chmod C:\Users\Massimo\AppData\Roaming\npm-cache\async\0.1.18\package.tgz 644
+361 silly chown skipping for windows C:\Users\Massimo\AppData\Roaming\npm-cache\async\0.1.18\package.tgz
+362 silly lockFile fe7f89e7-npmjs-org-async-async-0-1-18-tgz https://registry.npmjs.org/async/-/async-0.1.18.tgz
+363 silly lockFile fe7f89e7-npmjs-org-async-async-0-1-18-tgz https://registry.npmjs.org/async/-/async-0.1.18.tgz
+364 silly lockFile b86dcd49-async-0-1-18 async@0.1.18
+365 silly lockFile b86dcd49-async-0-1-18 async@0.1.18
+366 http 200 https://registry.npmjs.org/sf/-/sf-0.1.3.tgz
+367 verbose tar unpack C:\Users\Massimo\AppData\Local\Temp\ConsolePortableTemp\npm-4620-29Ujk8y6\1393660471502-0.866255259141326\tmp.tgz
+368 silly lockFile d141e692-471502-0-866255259141326-package tar://C:\Users\Massimo\AppData\Local\Temp\ConsolePortableTemp\npm-4620-29Ujk8y6\1393660471502-0.866255259141326\package
+369 verbose lock tar://C:\Users\Massimo\AppData\Local\Temp\ConsolePortableTemp\npm-4620-29Ujk8y6\1393660471502-0.866255259141326\package C:\Users\Massimo\AppData\Roaming\npm-cache\d141e692-471502-0-866255259141326-package.lock
+370 silly lockFile 2e17eb94-471502-0-866255259141326-tmp-tgz tar://C:\Users\Massimo\AppData\Local\Temp\ConsolePortableTemp\npm-4620-29Ujk8y6\1393660471502-0.866255259141326\tmp.tgz
+371 verbose lock tar://C:\Users\Massimo\AppData\Local\Temp\ConsolePortableTemp\npm-4620-29Ujk8y6\1393660471502-0.866255259141326\tmp.tgz C:\Users\Massimo\AppData\Roaming\npm-cache\2e17eb94-471502-0-866255259141326-tmp-tgz.lock
+372 silly gunzTarPerm modes [ '755', '644' ]
+373 silly gunzTarPerm extractEntry .npmignore
+374 silly gunzTarPerm extractEntry README.md
+375 silly gunzTarPerm extractEntry lib/
+376 silly gunzTarPerm extractEntry lib/stringFormat.js
+377 silly gunzTarPerm extractEntry .idea/
+378 silly gunzTarPerm extractEntry .idea/.name
+379 silly gunzTarPerm extractEntry test/
+380 silly gunzTarPerm extractEntry test/stringFormatTest.js
+381 silly gunzTarPerm extractEntry test/indentTest.js
+382 silly gunzTarPerm extractEntry package.json
+383 silly gunzTarPerm extractEntry index.js
+384 silly lockFile d141e692-471502-0-866255259141326-package tar://C:\Users\Massimo\AppData\Local\Temp\ConsolePortableTemp\npm-4620-29Ujk8y6\1393660471502-0.866255259141326\package
+385 silly lockFile d141e692-471502-0-866255259141326-package tar://C:\Users\Massimo\AppData\Local\Temp\ConsolePortableTemp\npm-4620-29Ujk8y6\1393660471502-0.866255259141326\package
+386 silly lockFile 2e17eb94-471502-0-866255259141326-tmp-tgz tar://C:\Users\Massimo\AppData\Local\Temp\ConsolePortableTemp\npm-4620-29Ujk8y6\1393660471502-0.866255259141326\tmp.tgz
+387 silly lockFile 2e17eb94-471502-0-866255259141326-tmp-tgz tar://C:\Users\Massimo\AppData\Local\Temp\ConsolePortableTemp\npm-4620-29Ujk8y6\1393660471502-0.866255259141326\tmp.tgz
+388 verbose tar pack [ 'C:\\Users\\Massimo\\AppData\\Roaming\\npm-cache\\sf\\0.1.3\\package.tgz',
+388 verbose tar pack   'C:\\Users\\Massimo\\AppData\\Local\\Temp\\ConsolePortableTemp\\npm-4620-29Ujk8y6\\1393660471502-0.866255259141326\\package' ]
+389 verbose tarball C:\Users\Massimo\AppData\Roaming\npm-cache\sf\0.1.3\package.tgz
+390 verbose folder C:\Users\Massimo\AppData\Local\Temp\ConsolePortableTemp\npm-4620-29Ujk8y6\1393660471502-0.866255259141326\package
+391 silly lockFile d141e692-471502-0-866255259141326-package tar://C:\Users\Massimo\AppData\Local\Temp\ConsolePortableTemp\npm-4620-29Ujk8y6\1393660471502-0.866255259141326\package
+392 verbose lock tar://C:\Users\Massimo\AppData\Local\Temp\ConsolePortableTemp\npm-4620-29Ujk8y6\1393660471502-0.866255259141326\package C:\Users\Massimo\AppData\Roaming\npm-cache\d141e692-471502-0-866255259141326-package.lock
+393 silly lockFile 8599e760-g-npm-cache-sf-0-1-3-package-tgz tar://C:\Users\Massimo\AppData\Roaming\npm-cache\sf\0.1.3\package.tgz
+394 verbose lock tar://C:\Users\Massimo\AppData\Roaming\npm-cache\sf\0.1.3\package.tgz C:\Users\Massimo\AppData\Roaming\npm-cache\8599e760-g-npm-cache-sf-0-1-3-package-tgz.lock
+395 silly lockFile d141e692-471502-0-866255259141326-package tar://C:\Users\Massimo\AppData\Local\Temp\ConsolePortableTemp\npm-4620-29Ujk8y6\1393660471502-0.866255259141326\package
+396 silly lockFile d141e692-471502-0-866255259141326-package tar://C:\Users\Massimo\AppData\Local\Temp\ConsolePortableTemp\npm-4620-29Ujk8y6\1393660471502-0.866255259141326\package
+397 silly lockFile 8599e760-g-npm-cache-sf-0-1-3-package-tgz tar://C:\Users\Massimo\AppData\Roaming\npm-cache\sf\0.1.3\package.tgz
+398 silly lockFile 8599e760-g-npm-cache-sf-0-1-3-package-tgz tar://C:\Users\Massimo\AppData\Roaming\npm-cache\sf\0.1.3\package.tgz
+399 silly lockFile a1a8d286-aming-npm-cache-sf-0-1-3-package C:\Users\Massimo\AppData\Roaming\npm-cache\sf\0.1.3\package
+400 verbose lock C:\Users\Massimo\AppData\Roaming\npm-cache\sf\0.1.3\package C:\Users\Massimo\AppData\Roaming\npm-cache\a1a8d286-aming-npm-cache-sf-0-1-3-package.lock
+401 silly lockFile a1a8d286-aming-npm-cache-sf-0-1-3-package C:\Users\Massimo\AppData\Roaming\npm-cache\sf\0.1.3\package
+402 silly lockFile a1a8d286-aming-npm-cache-sf-0-1-3-package C:\Users\Massimo\AppData\Roaming\npm-cache\sf\0.1.3\package
+403 verbose tar unpack C:\Users\Massimo\AppData\Roaming\npm-cache\sf\0.1.3\package.tgz
+404 silly lockFile 54b4f33a-aming-npm-cache-sf-0-1-3-package tar://C:\Users\Massimo\AppData\Roaming\npm-cache\sf\0.1.3\package
+405 verbose lock tar://C:\Users\Massimo\AppData\Roaming\npm-cache\sf\0.1.3\package C:\Users\Massimo\AppData\Roaming\npm-cache\54b4f33a-aming-npm-cache-sf-0-1-3-package.lock
+406 silly lockFile 8599e760-g-npm-cache-sf-0-1-3-package-tgz tar://C:\Users\Massimo\AppData\Roaming\npm-cache\sf\0.1.3\package.tgz
+407 verbose lock tar://C:\Users\Massimo\AppData\Roaming\npm-cache\sf\0.1.3\package.tgz C:\Users\Massimo\AppData\Roaming\npm-cache\8599e760-g-npm-cache-sf-0-1-3-package-tgz.lock
+408 silly gunzTarPerm modes [ '755', '644' ]
+409 silly gunzTarPerm extractEntry package.json
+410 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+411 silly gunzTarPerm extractEntry .npmignore
+412 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+413 silly gunzTarPerm extractEntry README.md
+414 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+415 silly gunzTarPerm extractEntry index.js
+416 silly gunzTarPerm modified mode [ 'index.js', 438, 420 ]
+417 silly gunzTarPerm extractEntry lib/stringFormat.js
+418 silly gunzTarPerm modified mode [ 'lib/stringFormat.js', 438, 420 ]
+419 silly gunzTarPerm extractEntry test/indentTest.js
+420 silly gunzTarPerm modified mode [ 'test/indentTest.js', 438, 420 ]
+421 silly gunzTarPerm extractEntry test/stringFormatTest.js
+422 silly gunzTarPerm modified mode [ 'test/stringFormatTest.js', 438, 420 ]
+423 silly lockFile 54b4f33a-aming-npm-cache-sf-0-1-3-package tar://C:\Users\Massimo\AppData\Roaming\npm-cache\sf\0.1.3\package
+424 silly lockFile 54b4f33a-aming-npm-cache-sf-0-1-3-package tar://C:\Users\Massimo\AppData\Roaming\npm-cache\sf\0.1.3\package
+425 silly lockFile 8599e760-g-npm-cache-sf-0-1-3-package-tgz tar://C:\Users\Massimo\AppData\Roaming\npm-cache\sf\0.1.3\package.tgz
+426 silly lockFile 8599e760-g-npm-cache-sf-0-1-3-package-tgz tar://C:\Users\Massimo\AppData\Roaming\npm-cache\sf\0.1.3\package.tgz
+427 verbose chmod C:\Users\Massimo\AppData\Roaming\npm-cache\sf\0.1.3\package.tgz 644
+428 silly chown skipping for windows C:\Users\Massimo\AppData\Roaming\npm-cache\sf\0.1.3\package.tgz
+429 silly lockFile c2701f1d-gistry-npmjs-org-sf-sf-0-1-3-tgz https://registry.npmjs.org/sf/-/sf-0.1.3.tgz
+430 silly lockFile c2701f1d-gistry-npmjs-org-sf-sf-0-1-3-tgz https://registry.npmjs.org/sf/-/sf-0.1.3.tgz
+431 silly lockFile 444a19d3-sf-0-1-3 sf@0.1.3
+432 silly lockFile 444a19d3-sf-0-1-3 sf@0.1.3
+433 info trying registry request attempt 3 at 08:55:31
+434 http GET https://registry.npmjs.org/bindings/0.3.0
+435 info trying registry request attempt 3 at 08:55:31
+436 verbose etag "ADVEQMUNIEXVWSJKIVVKGX6K1"
+437 http GET https://registry.npmjs.org/optimist
+438 silly registry.get cb [ 304, undefined ]
+439 verbose etag optimist from cache
+440 silly addNameRange number 2 { name: 'optimist', range: '>=0.3.4-0 <0.4.0-0', hasData: true }
+441 silly addNameRange versions [ 'optimist',
+441 silly addNameRange   [ '0.0.1',
+441 silly addNameRange     '0.0.2',
+441 silly addNameRange     '0.0.4',
+441 silly addNameRange     '0.0.5',
+441 silly addNameRange     '0.0.6',
+441 silly addNameRange     '0.0.7',
+441 silly addNameRange     '0.1.0',
+441 silly addNameRange     '0.1.1',
+441 silly addNameRange     '0.1.2',
+441 silly addNameRange     '0.1.3',
+441 silly addNameRange     '0.1.4',
+441 silly addNameRange     '0.1.5',
+441 silly addNameRange     '0.1.6',
+441 silly addNameRange     '0.1.7',
+441 silly addNameRange     '0.1.8',
+441 silly addNameRange     '0.1.9',
+441 silly addNameRange     '0.0.3',
+441 silly addNameRange     '0.2.0',
+441 silly addNameRange     '0.2.1',
+441 silly addNameRange     '0.2.2',
+441 silly addNameRange     '0.2.3',
+441 silly addNameRange     '0.2.4',
+441 silly addNameRange     '0.2.5',
+441 silly addNameRange     '0.2.6',
+441 silly addNameRange     '0.2.7',
+441 silly addNameRange     '0.2.8',
+441 silly addNameRange     '0.3.0',
+441 silly addNameRange     '0.3.1',
+441 silly addNameRange     '0.3.3',
+441 silly addNameRange     '0.3.4',
+441 silly addNameRange     '0.3.5',
+441 silly addNameRange     '0.3.6',
+441 silly addNameRange     '0.3.7',
+441 silly addNameRange     '0.4.0',
+441 silly addNameRange     '0.5.0',
+441 silly addNameRange     '0.5.1',
+441 silly addNameRange     '0.5.2',
+441 silly addNameRange     '0.6.0' ] ]
+442 verbose addNamed [ 'optimist', '0.3.7' ]
+443 verbose addNamed [ '0.3.7', '0.3.7' ]
+444 silly lockFile 090e1d8d-optimist-0-3-7 optimist@0.3.7
+445 verbose lock optimist@0.3.7 C:\Users\Massimo\AppData\Roaming\npm-cache\090e1d8d-optimist-0-3-7.lock
+446 silly lockFile 090e1d8d-optimist-0-3-7 optimist@0.3.7
+447 silly lockFile 090e1d8d-optimist-0-3-7 optimist@0.3.7
+448 silly lockFile 094c60bd-optimist-0-3-4 optimist@~0.3.4
+449 silly lockFile 094c60bd-optimist-0-3-4 optimist@~0.3.4
+450 silly lockFile a060d42a-bindings-0-3-0 bindings@0.3.0
+451 silly lockFile a060d42a-bindings-0-3-0 bindings@0.3.0
+452 verbose about to build c:\Dev\NodeJs\git\massimobiagioli\nodejs\arduino-ledRGB\node_modules\serialport2
+453 info c:\Dev\NodeJs\git\massimobiagioli\nodejs\arduino-ledRGB\node_modules\serialport2 unbuild
+454 info preuninstall serialport2@0.0.5
+455 info uninstall serialport2@0.0.5
+456 verbose true,c:\Dev\NodeJs\git\massimobiagioli\nodejs\arduino-ledRGB\node_modules,c:\Dev\NodeJs\git\massimobiagioli\nodejs\arduino-ledRGB\node_modules unbuild serialport2@0.0.5
+457 verbose c:\Dev\NodeJs\git\massimobiagioli\nodejs\arduino-ledRGB\node_modules\.bin,[object Object] binRoot
+458 info postuninstall serialport2@0.0.5
+459 error Error: SELF_SIGNED_CERT_IN_CHAIN
+459 error     at SecurePair.<anonymous> (tls.js:1356:32)
+459 error     at SecurePair.EventEmitter.emit (events.js:92:17)
+459 error     at SecurePair.maybeInitFinished (tls.js:968:10)
+459 error     at CleartextStream.read [as _read] (tls.js:462:15)
+459 error     at CleartextStream.Readable.read (_stream_readable.js:320:10)
+459 error     at EncryptedStream.write [as _write] (tls.js:366:25)
+459 error     at doWrite (_stream_writable.js:221:10)
+459 error     at writeOrBuffer (_stream_writable.js:211:5)
+459 error     at EncryptedStream.Writable.write (_stream_writable.js:180:11)
+459 error     at write (_stream_readable.js:583:24)
+459 error     at flow (_stream_readable.js:592:7)
+459 error     at Socket.pipeOnReadable (_stream_readable.js:624:5)
+460 error If you need help, you may report this log at:
+460 error     <http://github.com/isaacs/npm/issues>
+460 error or email it to:
+460 error     <npm-@googlegroups.com>
+461 error System Windows_NT 6.2.9200
+462 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "--save" "serialport2"
+463 error cwd c:\Dev\NodeJs\git\massimobiagioli\nodejs\arduino-ledRGB
+464 error node -v v0.10.21
+465 error npm -v 1.3.11
+466 verbose exit [ 1, true ]
