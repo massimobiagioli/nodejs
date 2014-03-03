@@ -4,21 +4,36 @@
 
 'use strict';
 
-var dbLayer = require('../lib/dbLayer');
+var dbLayer = require('../lib/dbLayer'),
+	errors = require('../messages/errors');
+
+var handleResponse = function(response, err, result) {
+	if (!err) {
+		response.writeHead(200, {"Content-Type": "application/json"});
+		response.end(JSON.stringify({
+			result: result
+		}));
+	} else {
+		handleInternalError(err);
+	}
+};
+
+var handleInternalError = function(response, errorMsg) {
+	response.writeHead(500, {"Content-Type": "application/json"});
+	response.end(JSON.stringify({
+		error: errorMsg
+	}));
+};
 
 var list = function(request, response) {
 	dbLayer.openConnection(function(err) {
 		if (!err) {
-			response.send('elenco ' + request.params['tableKey']);
-			
 			dbLayer.query(request.params['tableKey'], null, function(err, result) {
-				if (!err) {
-					console.log(result)
-				}
+				handleResponse(response, err, result);
 				dbLayer.closeConnection();
 			});			
-		} else {
-			response.send('errore apertura database');
+		} else {			
+			handleInternalError(errors.ERR_OPEN_CONNECTION);
 		}
 	});
 };

@@ -4,18 +4,12 @@
 
 'use strict';
 
-module.exports = (function() {
+var serverConfig = require('../config/server');
+
+module.exports = (function(config) {
 	var DBWrapper = require('node-dbi').DBWrapper;
 	
-	var	connectionString = { 			
-		'database': '../data/rpi-unit.db'
-	};
-	
-	var	dbWrapper = new DBWrapper('sqlite3', connectionString);
-	
-	var	tableMap = {
-		'deviceType': 'device_types'	
-	};
+	var	dbWrapper = new DBWrapper('sqlite3', config.connectionString);
 	
 	var openConnection = function(callback) {
 		dbWrapper.connect(callback);
@@ -26,7 +20,7 @@ module.exports = (function() {
 	};
 	
 	var query = function(tableKey, queryData, callback) {
-		dbWrapper.fetchAll('SELECT * FROM ' + tableMap[tableKey], null, callback);
+		dbWrapper.fetchAll('SELECT * FROM ' + config.tableMap[tableKey], null, callback);
 	};
 	
 	return {		
@@ -34,4 +28,4 @@ module.exports = (function() {
 		closeConnection: closeConnection,
 		query: query
 	};
-})();
+})(serverConfig.db);
