@@ -17,4 +17,8 @@ app.use(app.router);
 app.use(express.static(__dirname + '/public'));
 
 /* Crea server */
-io.listen(app.listen(app.get('port')));
+io.listen(app.listen(app.get('port')), function() {
+	io.sockets.on('connection', function (socket) {
+		console.log('connected');
+	});
+});
