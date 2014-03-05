@@ -1,24 +1,20 @@
-'use strict';
+var express = require('express');
 
-var express = require('express'),
-	io = require('socket.io');
-
-/* Crea applicazione Express */
 var app = express();
-
-/* Configura applicazione Express */
-app.set('port', process.env.PORT || 3000);
-app.use(express.favicon());
-app.use(express.logger());
-app.use(express.json());
-app.use(express.urlencoded());
-app.use(express.methodOverride());
-app.use(app.router);
 app.use(express.static(__dirname + '/public'));
 
-/* Crea server */
-io.listen(app.listen(app.get('port')), function() {
-	io.sockets.on('connection', function (socket) {
-		console.log('connected');
+var io = require('socket.io').listen(app.listen(3000));
+
+io.sockets.on('connection', function (socket) {
+	
+	var interval = setInterval(function() {
+		socket.volatile.emit('evento', {			
+			n: Math.floor((Math.random() * 5) + 1)
+		});
+	}, 5000);
+		
+	socket.on('disconnect', function () {
+		clearInterval(interval);
 	});
+	
 });

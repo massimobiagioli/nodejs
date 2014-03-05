@@ -1,12 +1,17 @@
 <html>
 	<head>
-		<title>Arduino SocketIO Test</title>
-		<script src="socket.io.min.js"></script>
+		<title>Client</title>
+		<script src="js/socket.io.min.js"></script>
 		<script>
-		  var socket = io.connect('http://localhost');
-		  
+		var socket = io.connect('http://localhost');
+				
+		socket.on('evento', function(data) {			
+			console.log('Evento: ' + data.n);			
+		});
+				
 		</script>
 	</head>
-	<body>
+	<body>		
+		Client
 	</body>
 </html>
