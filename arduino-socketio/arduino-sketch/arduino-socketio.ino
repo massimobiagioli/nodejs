@@ -7,7 +7,6 @@ int startStopStatus = 0;
 
 int reset = 0;
 int oldReset = 0;
-int resetStatus = 0;
 
 void setup() {
   pinMode(buttonStartStop, INPUT);
@@ -19,19 +18,16 @@ void loop() {
   startStop = digitalRead(buttonStartStop);
   if (oldStartStop != startStop) {
     if (LOW == startStop) { 
-      startStopStatus = 0 == startStopStatus ? 1 : 0; 
-      Serial.print("Start-Stop: ");
-      Serial.println(startStopStatus);
+      startStopStatus = 0 == startStopStatus ? 1 : 0;       
+      Serial.println(0 == startStopStatus ? "stop" : "start");
     }
     oldStartStop = startStop;
   }
   
   reset = digitalRead(buttonReset);
   if (oldReset != reset) {
-    if (LOW == reset) { 
-      resetStatus = 0 == resetStatus ? 1 : 0; 
-      Serial.print("Reset: ");
-      Serial.println(resetStatus);
+    if (LOW == reset) {  
+      Serial.println("reset");
     }
     oldReset = reset;
   }
