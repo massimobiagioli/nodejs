@@ -6,14 +6,22 @@
 		<script>
 		var socket = io.connect('http://raspberrypi.local');
 				
-		socket.on('serial', function(data) {			
-			console.log('Serial Data: ' + data.buffer);		
-			$('#serialLogDiv').html(data.buffer);
+		socket.on('serial', function(data) {						
+			switch(data.buffer) {
+			case "start":
+				break;
+			case "stop":
+				break;
+			case "reset":
+				break;
+			}
+			
+			$('#counter').html(data.buffer);
 		});
 				
 		</script>
 	</head>
 	<body>		
-		<div id="serialLogDiv"></div>
+		<div id="counter"></div>
 	</body>
 </html>
