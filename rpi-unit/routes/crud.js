@@ -39,19 +39,55 @@ var list = function(request, response) {
 };
 
 var get = function(request, response) {
-	response.send('get id: ' + request.params['tableId'] + ' of ' + request.params['tableKey']);
+	dbLayer.openConnection(function(err) {
+		if (!err) {
+			dbLayer.get(request.params['tableKey'], request.params['tableId'], function(err, result) {
+				handleResponse(response, err, result);
+				dbLayer.closeConnection();
+			});			
+		} else {			
+			handleInternalError(errors.ERR_OPEN_CONNECTION);
+		}
+	});	
 };
 
-var insert = function(request, response) {
-	response.send('insert: ' + request.params['tableKey'] + ' (' + request.body.id + ' - ' + request.body.nome + ')');
+var insert = function(request, response) {	
+	dbLayer.openConnection(function(err) {
+		if (!err) {
+			dbLayer.insert(request.params['tableKey'], request.body.model, function(err, result) {
+				handleResponse(response, err, result);
+				dbLayer.closeConnection();
+			});			
+		} else {			
+			handleInternalError(errors.ERR_OPEN_CONNECTION);
+		}
+	});	
 };
 
 var update = function(request, response) {
-	response.send('put id: ' + request.params['tableId'] + ' of ' + request.params['tableKey']);
+	dbLayer.openConnection(function(err) {
+		if (!err) {
+			dbLayer.update(request.params['tableKey'], request.params['tableId'], request.body.model, function(err, result) {
+				handleResponse(response, err, result);
+				dbLayer.closeConnection();
+			});			
+		} else {			
+			handleInternalError(errors.ERR_OPEN_CONNECTION);
+		}
+	});	
 };
 
 var del = function(request, response) {
-	response.send('delete id: ' + request.params['tableId'] + ' of ' + request.params['tableKey']);
+	dbLayer.openConnection(function(err) {
+		if (!err) {
+			dbLayer.del(request.params['tableKey'], request.params['tableId'], function(err, result) {
+				handleResponse(response, err, result);
+				dbLayer.closeConnection();
+			});			
+		} else {			
+			handleInternalError(errors.ERR_OPEN_CONNECTION);
+		}
+	});	
 };
 
 module.exports = {	
