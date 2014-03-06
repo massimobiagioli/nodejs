@@ -2,16 +2,18 @@
 	<head>
 		<title>Client</title>
 		<script src="js/socket.io.min.js"></script>
+		<script src="js/jquery-1.10.2.js"></script>
 		<script>
-		var socket = io.connect('http://localhost');
+		var socket = io.connect('http://raspberrypi.local');
 				
-		socket.on('evento', function(data) {			
-			console.log('Evento: ' + data.n);			
+		socket.on('serial', function(data) {			
+			console.log('Serial Data: ' + data.buffer);		
+			$('#serialLogDiv').html(data.buffer);
 		});
 				
 		</script>
 	</head>
 	<body>		
-		Client
+		<div id="serialLogDiv"></div>
 	</body>
 </html>

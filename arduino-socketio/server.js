@@ -1,20 +1,33 @@
-var express = require('express');
+var express = require('express'),
+	serialport = require("serialport");
 
 var app = express();
 app.use(express.static(__dirname + '/public'));
 
 var io = require('socket.io').listen(app.listen(3000));
 
+var SerialPort = serialport.SerialPort; 
+var sp = new SerialPort("/dev/ttyACM0", {
+	baudrate: 9600,
+	parser: serialport.parsers.readline("\n")
+});
+
 io.sockets.on('connection', function (socket) {
 	
-	var interval = setInterval(function() {
-		socket.volatile.emit('evento', {			
-			n: Math.floor((Math.random() * 5) + 1)
-		});
-	}, 5000);
-		
-	socket.on('disconnect', function () {
-		clearInterval(interval);
+	sp.open(function(err) {
+		if (!err) {
+			console.log('Serial port open');
+			
+			sp.on('data', function(data) {
+			    console.log('data received: ' + data);
+			    socket.emit('serial', {
+			    	buffer: data	
+			    });
+			});
+			
+		} else {
+			console.log('Error open serial port: ' + err);
+		}
 	});
 	
 });
