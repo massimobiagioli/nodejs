@@ -3,25 +3,34 @@
 		<title>Client</title>
 		<script src="js/socket.io.min.js"></script>
 		<script src="js/jquery-1.10.2.js"></script>
-		<script>
-		var socket = io.connect('http://raspberrypi.local');
-				
-		socket.on('serial', function(data) {						
-			switch(data.buffer) {
-			case "start":
-				break;
-			case "stop":
-				break;
-			case "reset":
-				break;
-			}
-			
-			$('#counter').html(data.buffer);
-		});
-				
-		</script>
+		<script src="js/counter.js"></script>
+		<style type="text/css">
+		.counter {
+			font-size: 24pt;
+		}
+		</style>		
 	</head>
 	<body>		
-		<div id="counter"></div>
+		<div id="counter" class="counter"></div>
+		
+		<script>
+		var socket = io.connect('http://raspberrypi.local');
+		var myCounter = counter($, '#counter');
+		
+		socket.on('serial', function(data) {						
+			switch(data.buffer.trim()) {
+			case "start":
+				myCounter.start();
+				break;
+			case "stop":
+				myCounter.stop();
+				break;
+			case "reset":
+				myCounter.reset();
+				break;
+			}
+		});
+		</script>
+		
 	</body>
 </html>
