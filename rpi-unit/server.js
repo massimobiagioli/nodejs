@@ -5,8 +5,10 @@
 'use strict';
 
 var express = require('express'),
-	serverConfig = require('./config/server'),
+	fs = require('fs'),
+	https = require('https'),
 	io = require('socket.io'),
+	serverConfig = require('./config/server'),
 	cors = require('cors'),
 	crudRoutes = require('./routes/crud');
 
@@ -32,4 +34,14 @@ app.put('/api/update/:tableKey/:tableId(\\d+)', crudRoutes.update);
 app.del('/api/delete/:tableKey/:tableId(\\d+)', crudRoutes.del);  
 
 /* Crea server */
-io.listen(app.listen(app.get('port')));
+//app.listen(app.get('port'));
+var sslOptions = {
+	key: fs.readFileSync('./ssl/server.key'),
+	cert: fs.readFileSync('./ssl/server.crt'),
+	ca: fs.readFileSync('./ssl/ca.crt'),
+	requestCert: true,
+	rejectUnauthorized: false
+};
+https.createServer(sslOptions, app).listen(app.get('port'), function() {
+	console.log('Secure Express server listening on port ' + app.get('port'));
+});
