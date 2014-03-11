@@ -6,32 +6,19 @@
 		<script type="text/javascript" src="hmac-sha256.js"></script>
 		<script type="text/javascript">
 			function deviceTypeList() {				
-				var timestamp = moment().format('YYYYMMDDhhmmssSSS');
 				var username = "unit"
 				var password = "Un1t&";
 				
-				// Salt password
-				var saltedPassword = (function() {
-					var key = username + password + timestamp;
-					var hmac = CryptoJS.algo.HMAC.create(CryptoJS.algo.SHA256, key);
-					hmac.update(timestamp);
-					var salt = hmac.finalize();
-					
-					return password + salt;
-				})();
-				
-				var hmac = CryptoJS.algo.HMAC.create(CryptoJS.algo.SHA256, saltedPassword);
-				hmac.update(password + username + timestamp + saltedPassword);
-				var hash = hmac.finalize();				
-				
+				//var username = "admin"
+				//var password = "Admin$$$";
+								
 				$.ajax({
 					type: "GET",
-					url: "http://localhost:4000/api/list/deviceType",					
+					url: "https://localhost:4000/api/list/deviceType",					
         			dataType: "json",					
-					headers: {						
-						'X-Auth': hash,
+					headers: {												
 						'X-Username': username,
-						'X-Timestamp': timestamp
+						'X-Password': password
 					}
 				})
 				.done(function(result) {
@@ -39,16 +26,14 @@
 				});
 			}
 			
-			function deviceTypeGet() {
-				var timestamp = moment().format('YYYYMMDDhhmmssSSS');
-
+			function deviceTypeGet() {				
 				$.ajax({
 					type: "GET",
-					url: "http://localhost:4000/api/get/deviceType/2",					
+					url: "https://localhost:4000/api/get/deviceType/2",					
         			dataType: "json",					
 					headers: {
-						'X-Auth': "QWERTY123xyz",
-						'X-Timestamp': timestamp
+						'X-Username': username,
+						'X-Password': password
 					}
 				})
 				.done(function(result) {
@@ -57,15 +42,13 @@
 			}
 			
 			function deviceTypeInsert() {
-				var timestamp = moment().format('YYYYMMDDhhmmssSSS');
-
 				$.ajax({
 					type: "POST",
-					url: "http://localhost:4000/api/insert/deviceType",					
+					url: "https://localhost:4000/api/insert/deviceType",					
         			dataType: "json",					
 					headers: {
-						'X-Auth': "QWERTY123xyz",
-						'X-Timestamp': timestamp
+						'X-Username': username,
+						'X-Password': password
 					},
 					data: {
 						model: {
@@ -79,15 +62,13 @@
 			}			
 			
 			function deviceTypeUpdate() {
-				var timestamp = moment().format('YYYYMMDDhhmmssSSS');
-
 				$.ajax({
 					type: "PUT",
-					url: "http://localhost:4000/api/update/deviceType/4",					
+					url: "https://localhost:4000/api/update/deviceType/4",					
         			dataType: "json",					
 					headers: {
-						'X-Auth': "QWERTY123xyz",
-						'X-Timestamp': timestamp
+						'X-Username': username,
+						'X-Password': password
 					},
 					data: {
 						model: {
@@ -101,15 +82,13 @@
 			}			
 			
 			function deviceTypeDelete() {
-				var timestamp = moment().format('YYYYMMDDhhmmssSSS');
-
 				$.ajax({
 					type: "DELETE",
-					url: "http://localhost:4000/api/delete/deviceType/4",					
+					url: "https://localhost:4000/api/delete/deviceType/4",					
         			dataType: "json",					
 					headers: {
-						'X-Auth': "QWERTY123xyz",
-						'X-Timestamp': timestamp
+						'X-Username': username,
+						'X-Password': password
 					}
 				})
 				.done(function(result) {

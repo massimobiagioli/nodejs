@@ -17,8 +17,8 @@ create table device_types (
 
 
 /* Data */
-insert into users values (1, "admin", "134FE91B469828ED05793DE844F20BB6", "Amministratore Sistema", 1);
-insert into users values (2, "unit", "99F6F8C2AF816F82326600AC6E2DC9C7", "Utilizzatore", 0);
+insert into users values (1, "admin", "879f4a8ffee8be46f02a9fa2f845a1c0", "Amministratore Sistema", 1);
+insert into users values (2, "unit", "a7fccf7189106bab56a2565bb404fd54", "Utilizzatore", 0);
 
 insert into device_types values (1, "Arduino UNO rev.3");
 insert into device_types values (2, "KMtronic 4 channel usb relay board");

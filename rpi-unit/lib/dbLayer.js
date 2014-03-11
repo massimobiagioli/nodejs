@@ -19,8 +19,19 @@ module.exports = (function(config) {
 		dbWrapper.close(callback);
 	};
 	
-	var query = function(tableKey, queryData, callback) {
-		dbWrapper.fetchAll('SELECT * FROM ' + config.tableMap[tableKey], null, callback);
+	var query = function(tableKey, queryData, callback) {		
+		//dbWrapper.fetchAll('SELECT * FROM ' + config.tableMap[tableKey], null, callback);
+		
+		var select = dbWrapper.getSelect().from(config.tableMap[tableKey]);
+		
+		/*
+		var filter;
+		
+		for (filter in queryData.filters) {
+			select.where(filter.name + ' ' + filter.operator + ' ?', val);
+		}*/		
+		
+		dbWrapper.fetchAll(select, callback);
 	};
 	
 	var get = function(tableKey, id, callback) {
@@ -41,6 +52,10 @@ module.exports = (function(config) {
 		dbWrapper.remove(config.tableMap[tableKey], [['id=?', id]], callback);
 	};
 	
+	var findUserByName = function(name, callback) {
+		dbWrapper.fetchRow('SELECT * FROM users WHERE username=?', [name], callback);
+	};
+	
 	return {		
 		openConnection: openConnection,
 		closeConnection: closeConnection,
@@ -48,6 +63,7 @@ module.exports = (function(config) {
 		get: get,
 		insert: insert,
 		update: update,
-		del: del
+		del: del,
+		findUserByName: findUserByName
 	};
 })(serverConfig.db);

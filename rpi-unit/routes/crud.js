@@ -5,6 +5,7 @@
 'use strict';
 
 var dbLayer = require('../lib/dbLayer'),
+	cryptUtils = require('../lib/cryptUtils'),
 	errors = require('../messages/errors');
 
 var handleResponse = function(response, err, result) {
@@ -18,24 +19,34 @@ var handleResponse = function(response, err, result) {
 	}
 };
 
-var handleInternalError = function(response, errorMsg) {
-	response.writeHead(500, {"Content-Type": "application/json"});
+var handleError = function(response, errorCode, errorMsg) {
+	response.writeHead(errorCode, {"Content-Type": "application/json"});
 	response.end(JSON.stringify({
 		error: errorMsg
 	}));
 };
 
+var checkPassword = function(request) {
+	var token = cryptUtils.getUserMD5Hash(request.headers['x-username'] || '', request.headers['x-password'] || '').toLowerCase();
+	
+	return true;
+};
+
 var list = function(request, response) {
-	dbLayer.openConnection(function(err) {
-		if (!err) {
-			dbLayer.query(request.params['tableKey'], null, function(err, result) {
-				handleResponse(response, err, result);
-				dbLayer.closeConnection();
-			});			
-		} else {			
-			handleInternalError(errors.ERR_OPEN_CONNECTION);
-		}
-	});
+	if (checkPassword(request)) {
+		dbLayer.openConnection(function(err) {
+			if (!err) {
+				dbLayer.query(request.params['tableKey'], null, function(err, result) {
+					handleResponse(response, err, result);
+					dbLayer.closeConnection();
+				});			
+			} else {			
+				handleError(500, errors.ERR_OPEN_CONNECTION);
+			}
+		});		
+	} else {			
+		handleError(403, errors.ERR_UNHAUTORIZED);
+	}
 };
 
 var get = function(request, response) {
@@ -46,7 +57,7 @@ var get = function(request, response) {
 				dbLayer.closeConnection();
 			});			
 		} else {			
-			handleInternalError(errors.ERR_OPEN_CONNECTION);
+			handleError(500, errors.ERR_OPEN_CONNECTION);
 		}
 	});	
 };
@@ -59,7 +70,7 @@ var insert = function(request, response) {
 				dbLayer.closeConnection();
 			});			
 		} else {			
-			handleInternalError(errors.ERR_OPEN_CONNECTION);
+			handleError(500, errors.ERR_OPEN_CONNECTION);
 		}
 	});	
 };
@@ -72,7 +83,7 @@ var update = function(request, response) {
 				dbLayer.closeConnection();
 			});			
 		} else {			
-			handleInternalError(errors.ERR_OPEN_CONNECTION);
+			handleError(500, errors.ERR_OPEN_CONNECTION);
 		}
 	});	
 };
@@ -85,7 +96,7 @@ var del = function(request, response) {
 				dbLayer.closeConnection();
 			});			
 		} else {			
-			handleInternalError(errors.ERR_OPEN_CONNECTION);
+			handleError(500, errors.ERR_OPEN_CONNECTION);
 		}
 	});	
 };
