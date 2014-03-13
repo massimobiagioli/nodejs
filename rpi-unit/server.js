@@ -34,7 +34,6 @@ app.put('/api/update/:tableKey/:tableId(\\d+)', crudRoutes.update);
 app.del('/api/delete/:tableKey/:tableId(\\d+)', crudRoutes.del);  
 
 /* Crea server */
-//app.listen(app.get('port'));
 var sslOptions = {
 	key: fs.readFileSync('./ssl/server.key'),
 	cert: fs.readFileSync('./ssl/server.crt'),

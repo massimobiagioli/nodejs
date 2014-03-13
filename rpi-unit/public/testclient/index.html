@@ -1,17 +1,16 @@
 <html>
 	<head>
 		<title>Server Test</title>
-		<script type="text/javascript" src="jquery-1.7.2-min.js"></script>
-		<script type="text/javascript" src="moment.js"></script>		
-		<script type="text/javascript" src="hmac-sha256.js"></script>
+		<script type="text/javascript" src="jquery-1.7.2-min.js"></script>				
 		<script type="text/javascript">
+			
+			var username = "unit"
+			var password = "Un1t&";
+			
+			//var username = "admin"
+			//var password = "Admin$$$";
+			
 			function deviceTypeList() {				
-				var username = "unit"
-				var password = "Un1t&";
-				
-				//var username = "admin"
-				//var password = "Admin$$$";
-								
 				$.ajax({
 					type: "GET",
 					url: "https://localhost:4000/api/list/deviceType",					
