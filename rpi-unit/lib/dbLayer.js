@@ -4,7 +4,8 @@
 
 'use strict';
 
-var serverConfig = require('../config/server');
+var serverConfig = require('../config/server'),
+	_ = require('underscore');
 
 module.exports = (function(config) {
 	var DBWrapper = require('node-dbi').DBWrapper;
@@ -19,18 +20,14 @@ module.exports = (function(config) {
 		dbWrapper.close(callback);
 	};
 	
-	var query = function(tableKey, queryData, callback) {		
-		//dbWrapper.fetchAll('SELECT * FROM ' + config.tableMap[tableKey], null, callback);
+	var list = function(tableKey, queryobj, callback) {				
+		var filter = null,
+			select = dbWrapper.getSelect().from(config.tableMap[tableKey]);
 		
-		var select = dbWrapper.getSelect().from(config.tableMap[tableKey]);
-		
-		/*
-		var filter;
-		
-		for (filter in queryData.filters) {
-			select.where(filter.name + ' ' + filter.operator + ' ?', val);
-		}*/		
-		
+		_.each(queryobj.filters, function(filter) {
+			select.where(filter.name + ' ' + filter.operator + ' ?', filter.value);
+		});
+						
 		dbWrapper.fetchAll(select, callback);
 	};
 	
@@ -59,7 +56,7 @@ module.exports = (function(config) {
 	return {		
 		openConnection: openConnection,
 		closeConnection: closeConnection,
-		query: query,
+		list: list,
 		get: get,
 		insert: insert,
 		update: update,

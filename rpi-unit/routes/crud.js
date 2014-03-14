@@ -60,7 +60,7 @@ var list = function(request, response) {
 		if (!err) {						
 			promise = checkPassword(request);
 			promise.then(function() {
-				dbLayer.query(request.params['tableKey'], null, function(err, result) {
+				dbLayer.list(request.params['tableKey'], request.query['queryobj'], function(err, result) {
 					handleResponse(response, err, result);
 					dbLayer.closeConnection();
 				});			
