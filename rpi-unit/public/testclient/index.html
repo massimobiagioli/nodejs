@@ -12,14 +12,24 @@
 			
 			function deviceTypeList() {				
 				var queryobj = {
-					filters: [
+					/*filters: [
 						{
 							name: 'name',
 							operator: 'LIKE',
 							value: 'Arduino UNO rev.3'
 						}						
-					]					
-				}
+					],*/
+					orderCriterions: [
+						{
+							name: 'name',
+							direction: 'ASC'
+						}
+					],
+					/*limit: {
+						rows: 1,
+						startIndex: 1
+					}*/					
+				};
 				
 				$.ajax({
 					type: "GET",

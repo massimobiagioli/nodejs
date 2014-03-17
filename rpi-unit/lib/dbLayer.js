@@ -20,14 +20,29 @@ module.exports = (function(config) {
 		dbWrapper.close(callback);
 	};
 	
-	var list = function(tableKey, queryobj, callback) {				
-		var filter = null,
-			select = dbWrapper.getSelect().from(config.tableMap[tableKey]);
+	var list = function(tableKey, queryobj, callback) {						
+		var	select = dbWrapper.getSelect().from(config.tableMap[tableKey]);
 		
 		_.each(queryobj.filters, function(filter) {
 			select.where(filter.name + ' ' + filter.operator + ' ?', filter.value);
 		});
-						
+		
+		_.each(queryobj.orderCriterions, function(orderCriterion) {
+			if (_.has(orderCriterion, 'direction')) {
+				select.order(orderCriterion.name, orderCriterion.direction);
+			} else {
+				select.order(orderCriterion.name);
+			}			
+		});
+		
+		if (_.has(queryobj, 'limit')) {
+			if (_.has(queryobj.limit, 'startIndex')) {
+				select.limit(queryobj.limit.rows, queryobj.limit.startIndex)
+			} else {
+				select.limit(queryobj.limit.rows)
+			}			
+		}
+		
 		dbWrapper.fetchAll(select, callback);
 	};
 	

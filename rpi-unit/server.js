@@ -10,7 +10,7 @@ var express = require('express'),
 	io = require('socket.io'),
 	serverConfig = require('./config/server'),
 	cors = require('cors'),
-	crudRoutes = require('./routes/crud');
+	crudRoute = require('./routes/crud');
 
 /* Crea applicazione Express */
 var app = express();
@@ -27,11 +27,11 @@ app.use(app.router);
 app.use(express.static(__dirname + '/public'));
 
 /* Configura Routes */
-app.get('/api/list/:tableKey', crudRoutes.list); 
-app.get('/api/get/:tableKey/:tableId(\\d+)', crudRoutes.get); 
-app.post('/api/insert/:tableKey', crudRoutes.insert); 
-app.put('/api/update/:tableKey/:tableId(\\d+)', crudRoutes.update); 
-app.del('/api/delete/:tableKey/:tableId(\\d+)', crudRoutes.del);  
+app.get('/api/list/:tableKey', crudRoute.list); 
+app.get('/api/get/:tableKey/:tableId(\\d+)', crudRoute.get); 
+app.post('/api/insert/:tableKey', crudRoute.insert); 
+app.put('/api/update/:tableKey/:tableId(\\d+)', crudRoute.update); 
+app.del('/api/delete/:tableKey/:tableId(\\d+)', crudRoute.del);  
 
 /* Crea server */
 var sslOptions = {
