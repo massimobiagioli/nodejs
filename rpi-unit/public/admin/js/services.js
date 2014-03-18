@@ -1,0 +1,73 @@
+'use strict';
+
+angular.module('ngRUAApp.services', []).
+    factory('CRUDModelFactory', ['$http', function($http) {        
+        var urlBase = '/api';        
+        var username = "unit";
+        var password = "Un1t&";                        
+        
+        var getHeaders = function() {                        
+            return {                
+                'X-Username': username,
+                'X-Password': password
+            };                        
+        };
+        
+        var list = function(modelKey) {                        
+            var promise = $http.get(urlBase + '/list/' + modelKey, {
+                headers: getHeaders()                
+            }).then(function(response) {
+                return response.data;
+            });
+
+            return promise;
+        };
+        
+        var get = function(modelKey, id) {
+            var promise = $http.get(urlBase + '/get/' + modelKey + '/' + id, {
+                headers: getHeaders()                
+            }).then(function(response) {
+                return response.data;
+            });
+
+            return promise;            
+        };
+        
+        var insert = function(modelKey, model) {
+            var promise = $http.post(urlBase + '/insert/' + modelKey, { model: model }, {
+                headers: getHeaders(),                
+            }).then(function(response) {
+                return response.data;
+            });
+
+            return promise;            
+        };
+        
+        var update = function(modelKey, data) {
+            var promise = $http.post(urlBase + '/update/' + modelKey + '/' + data.id, data, {
+                headers: getHeaders(),                
+            }).then(function(response) {
+                return response.data;
+            });
+
+            return promise;            
+        };
+        
+        var remove = function(modelKey, id) {
+            var promise = $http.post(urlBase + '/del/' + modelKey + '/' + id, {}, {
+                headers: getHeaders(),                
+            }).then(function(response) {
+                return response.data;
+            });
+
+            return promise;            
+        };
+        
+        return {
+            list: list,
+            get: get,
+            insert: insert,
+            update: update,
+            remove: remove
+        };
+    }]);
