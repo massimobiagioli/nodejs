@@ -102,10 +102,11 @@ var insert = function(request, response) {
 		if (!err) {
 			promise = checkPassword(request);
 			promise.then(function() {
-				dbLayer.insert(request.params['tableKey'], request.body.model, function(err, result) {
-					handleResponse(response, err, result);
-					dbLayer.closeConnection();
-				});		
+				dbLayer.insert(request.params['tableKey'], request.body.model).then(function(result) {
+					handleResponse(response, false, result);
+				}, function(err) {
+					handleError(response, 500, err);
+				});
 			}, function() {
 				dbLayer.closeConnection();
 				handleError(response, 403, errors.ERR_UNHAUTORIZED);

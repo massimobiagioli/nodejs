@@ -5,7 +5,8 @@
 'use strict';
 
 var serverConfig = require('../config/server'),
-	_ = require('underscore');
+	_ = require('underscore'),
+	q = require('q');
 
 module.exports = (function(config) {
 	var DBWrapper = require('node-dbi').DBWrapper;
@@ -53,9 +54,17 @@ module.exports = (function(config) {
 	};
 	
 	var insert = function(tableKey, data, callback) {
+		var deferred = q.defer();
+		
 		dbWrapper.insert(config.tableMap[tableKey], data, function(err) {
-			callback(err, dbWrapper.getLastInsertId());
+			if (err) {
+				deferred.reject(err);
+			} else {
+				deferred.resolve(dbWrapper.getLastInsertId());
+			}
 		});
+		
+		return deferred.promise;
 	};
 	
 	var update = function(tableKey, id, data, callback) {
