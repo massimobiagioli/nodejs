@@ -43,8 +43,8 @@ angular.module('ngRUAApp.services', []).
             return promise;            
         };
         
-        var update = function(modelKey, data) {
-            var promise = $http.post(urlBase + '/update/' + modelKey + '/' + data.id, data, {
+        var update = function(modelKey, model) {
+            var promise = $http.put(urlBase + '/update/' + modelKey + '/' + model.id, { model: model }, {
                 headers: getHeaders(),                
             }).then(function(response) {
                 return response.data;
@@ -53,8 +53,8 @@ angular.module('ngRUAApp.services', []).
             return promise;            
         };
         
-        var remove = function(modelKey, id) {
-            var promise = $http.post(urlBase + '/del/' + modelKey + '/' + id, {}, {
+        var del = function(modelKey, id) {
+            var promise = $http.delete(urlBase + '/delete/' + modelKey + '/' + id, {
                 headers: getHeaders(),                
             }).then(function(response) {
                 return response.data;
@@ -68,6 +68,6 @@ angular.module('ngRUAApp.services', []).
             get: get,
             insert: insert,
             update: update,
-            remove: remove
+            del: del
         };
     }]);

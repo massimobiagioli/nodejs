@@ -32,7 +32,7 @@ angular.module('ngRUAApp.controllers', []).
                 $location.path('/deviceTypeList');
             };                       
             
-            $scope.get = function(id) {a
+            $scope.get = function(id) {
                 CRUDModelFactory.get(modelKey, id).then(function(data) {                
                     $scope.data = data.result;
                 }, function(err) {                
@@ -47,31 +47,27 @@ angular.module('ngRUAApp.controllers', []).
             
             $scope.ok = function() {
                 if ('create' === $scope.action) {
-                    CRUDModelFactory.insert(modelKey, $scope.data).then(function(results) {                
-                        $scope.data = results;
-                    }, 
-                    function(err) {                
+                    CRUDModelFactory.insert(modelKey, $scope.data).then(function(result) {                
+                        $scope.lastInsertId = result;
+                        navigateToList();
+                    }, function(err) {                
                         $scope.err = err;
                     }); 
                 } else if ('edit' === $scope.action) { 
-                    CRUDModelFactory.update(modelKey, $scope.data).then(function(results) {                
-                        $scope.data = results;
-                    }, 
-                    function(err) {                
+                    CRUDModelFactory.update(modelKey, $scope.data).then(function(result) {                                        
+                        navigateToList();
+                    }, function(err) {                
                         $scope.err = err;
                     });  
-                }   
-                navigateToList();
+                }                   
             };
             
-            $scope.remove = function() {                
-                CRUDModelFactory.remove(modelKey, $scope.data.id).then(function(results) {                
-                    $scope.data = results;
+            $scope.del = function() {                
+                CRUDModelFactory.del(modelKey, $scope.data.id).then(function(result) {                
+                	navigateToList();
                 }, function(err) {                
                     $scope.err = err;
-                });  
-                   
-                navigateToList();
+                });                                    
             };
             
             $scope.cancel = function() {

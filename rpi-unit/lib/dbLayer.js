@@ -13,16 +13,37 @@ module.exports = (function(config) {
 	
 	var	dbWrapper = new DBWrapper('sqlite3', config.connectionString);
 	
-	var openConnection = function(callback) {
-		dbWrapper.connect(callback);
+	var openConnection = function() {
+		var deferred = q.defer();
+		
+		dbWrapper.connect(function(err) {
+			if (err) {
+				deferred.reject(err);
+			} else {
+				deferred.resolve();
+			}
+		});
+		
+		return deferred.promise;
 	}; 
 	
-	var closeConnection = function(callback) {
-		dbWrapper.close(callback);
+	var closeConnection = function() {
+		var deferred = q.defer();
+		
+		dbWrapper.close(function(err) {
+			if (err) {
+				deferred.reject(err);
+			} else {
+				deferred.resolve();
+			}
+		});
+		
+		return deferred.promise;
 	};
 	
-	var list = function(tableKey, queryobj, callback) {						
-		var	select = dbWrapper.getSelect().from(config.tableMap[tableKey]);
+	var list = function(tableKey, queryobj) {						
+		var	select = dbWrapper.getSelect().from(config.tableMap[tableKey]),
+			deferred = q.defer();
 		
 		if (queryobj) {
 			_.each(queryobj.filters, function(filter) {
@@ -46,14 +67,32 @@ module.exports = (function(config) {
 			}			
 		}
 		
-		dbWrapper.fetchAll(select, callback);
+		dbWrapper.fetchAll(select, function(err, result) {
+			if (err) {
+				deferred.reject(err);
+			} else {
+				deferred.resolve(result);
+			}
+		});
+		
+		return deferred.promise;
 	};
 	
-	var get = function(tableKey, id, callback) {
-		dbWrapper.fetchRow('SELECT * FROM ' + config.tableMap[tableKey] + ' WHERE id=?', [id], callback);
+	var get = function(tableKey, id) {
+		var deferred = q.defer();
+		
+		dbWrapper.fetchRow('SELECT * FROM ' + config.tableMap[tableKey] + ' WHERE id=?', [id], function(err, result) {
+			if (err) {
+				deferred.reject(err);
+			} else {
+				deferred.resolve(result);
+			}
+		});
+		
+		return deferred.promise;
 	};
 	
-	var insert = function(tableKey, data, callback) {
+	var insert = function(tableKey, data) {
 		var deferred = q.defer();
 		
 		dbWrapper.insert(config.tableMap[tableKey], data, function(err) {
@@ -67,16 +106,46 @@ module.exports = (function(config) {
 		return deferred.promise;
 	};
 	
-	var update = function(tableKey, id, data, callback) {
-		dbWrapper.update(config.tableMap[tableKey], data, [['id=?', id]], callback);
+	var update = function(tableKey, id, data) {
+		var deferred = q.defer();
+		
+		dbWrapper.update(config.tableMap[tableKey], data, [['id=?', id]], function(err, result) {
+			if (err) {
+				deferred.reject(err);
+			} else {
+				deferred.resolve(result);
+			}
+		});
+		
+		return deferred.promise;
 	};
 	
-	var del = function(tableKey, id, callback) {
-		dbWrapper.remove(config.tableMap[tableKey], [['id=?', id]], callback);
+	var del = function(tableKey, id) {
+		var deferred = q.defer();
+		
+		dbWrapper.remove(config.tableMap[tableKey], [['id=?', id]], function(err, result) {
+			if (err) {
+				deferred.reject(err);
+			} else {
+				deferred.resolve(result);
+			}
+		});
+		
+		return deferred.promise;
 	};
 	
-	var findUserByName = function(name, callback) {
-		dbWrapper.fetchRow('SELECT * FROM users WHERE username=?', [name], callback);
+	var findUserByName = function(name) {
+		var deferred = q.defer();
+		
+		dbWrapper.fetchRow('SELECT * FROM users WHERE username=?', [name], function(err, result) {
+			if (err) {
+				deferred.reject(err);
+			} else {
+				deferred.resolve(result);
+			}
+		});
+		
+		return deferred.promise;
 	};
 	
 	return {		
@@ -89,4 +158,5 @@ module.exports = (function(config) {
 		del: del,
 		findUserByName: findUserByName
 	};
+	
 })(serverConfig.db);
