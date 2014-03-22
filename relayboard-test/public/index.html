@@ -10,7 +10,7 @@
   function lamp_on() {
     $.ajax({
 		type: "GET",
-		url: "http://raspberrypi.local:3000/service/lamp_on"
+		url: "/service/lamp_on"
 	})
 	.done(function(result) {
 		console.log(result)
@@ -20,7 +20,7 @@
   function lamp_off() {
     $.ajax({
 		type: "GET",
-		url: "http://raspberrypi.local:3000/service/lamp_off"
+		url: "/service/lamp_off"
 	})
 	.done(function(result) {
 		console.log(result)
