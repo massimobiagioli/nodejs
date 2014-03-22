@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Control Lamp</title>
+  <script src="jquery-1.10.2.js"></script>    
+  
+  <script>
+
+  function lamp_on() {
+    $.ajax({
+		type: "GET",
+		url: "http://raspberrypi.local:3000/service/lamp_on"
+	})
+	.done(function(result) {
+		console.log(result)
+	});        
+  }
+  
+  function lamp_off() {
+    $.ajax({
+		type: "GET",
+		url: "http://raspberrypi.local:3000/service/lamp_off"
+	})
+	.done(function(result) {
+		console.log(result)
+	});        
+  }
+  
+  </script>
+</head>
+<body>
+	<button onclick="lamp_on();">Accendi</button>
+	<button onclick="lamp_off();">Spegni</button> 
+</body>
+</html>
