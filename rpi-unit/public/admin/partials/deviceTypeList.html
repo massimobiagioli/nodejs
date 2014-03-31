@@ -1,43 +1,37 @@
 <!-- Title -->
-<div class="container">
-    <div class="row">
-        <div class="span12 text-center">
-            <h1>Elenco Tipi Dispositivo</h1>
-        </div>
-    </div>    
-</div>
+<strong>Tipi di dispositivo</strong>
+
+<hr>
 
 <!-- Toolbar -->
-<div class="container container-custom">    
-    <div class="span12">            
-        <div class="btn-group">
-            <button type="button" class="btn btn-primary" ng-click="prepareForCreate();">Nuovo</button>                
-        </div>
-    </div>            
+<div class="row">
+	<div class="col-md-2">
+		<div class="btn-group btn-group-justified">
+			<a ng-click="prepareForCreate()" class="btn btn-primary col-sm-3">
+				<i class="glyphicon glyphicon-plus"></i><br>Nuovo
+			</a>
+		</div>
+	</div>
 </div>
+<!--/Toolbar-->
 
-<br/>
+<hr>
 
-<div class="container container-custom">
-        
-    <!-- Header -->
-    <div class="row row-custom">
-        <div class="span2 text-center">
-            <span><b>Id</b></span>
-        </div>          
-        <div class="span10 text-left">
-            <span><b>Nome</b></span>
-        </div>        
-    </div>
-    
-    <!-- Dati -->    
-    <div class="row" ng-repeat="item in data">    
-        <div class="span2 text-center">
-            <span>{{item.id}}</span>
-        </div>    
-        <div class="span10 text-left">
-            <span><a href="#/deviceTypeDetail/edit/{{item.id}}">{{item.name}}</a></span>
-        </div>    
-    </div>
-    
-</div>
+<!-- Dati -->
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Descrizione</th>
+		</tr>
+	</thead>
+	<tbody ng-repeat="item in data">
+		<tr>
+			<td>{{item.id}}</td>
+			<td><a href="#/deviceTypeDetail/edit/{{item.id}}">{{item.name}}</a></td>
+		</tr>
+	</tbody>
+</table>
+<!--/Dati-->
+
+<hr>

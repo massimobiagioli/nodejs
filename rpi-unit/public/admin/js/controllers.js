@@ -13,7 +13,7 @@ angular.module('ngRUAApp.controllers', []).
                 CRUDModelFactory.list(modelKey).then(function(data) {                
                     $scope.data = data.result;
                 }, function(err) {                
-                    $scope.err = err;
+                	bootbox.alert(err);
                 });                
             };
             
@@ -36,7 +36,7 @@ angular.module('ngRUAApp.controllers', []).
                 CRUDModelFactory.get(modelKey, id).then(function(data) {                
                     $scope.data = data.result;
                 }, function(err) {                
-                    $scope.err = err;
+                	bootbox.alert(err);
                 });                
             };
             
@@ -51,27 +51,44 @@ angular.module('ngRUAApp.controllers', []).
                         $scope.lastInsertId = result;
                         navigateToList();
                     }, function(err) {                
-                        $scope.err = err;
+                    	bootbox.alert(err);
                     }); 
                 } else if ('edit' === $scope.action) { 
                     CRUDModelFactory.update(modelKey, $scope.data).then(function(result) {                                        
                         navigateToList();
                     }, function(err) {                
-                        $scope.err = err;
+                    	bootbox.alert(err);
                     });  
                 }                   
             };
             
             $scope.del = function() {                
-                CRUDModelFactory.del(modelKey, $scope.data.id).then(function(result) {                
-                	navigateToList();
-                }, function(err) {                
-                    $scope.err = err;
-                });                                    
+				bootbox.dialog({
+					message : "Cancellare " + $scope.data.name + "?",
+					title : "Conferma cancellazione",
+					buttons : {
+						ok : {
+							label : "Si",
+							className : "btn-success",
+							callback : function() {
+								CRUDModelFactory.del(modelKey, $scope.data.id).then(function(result) {                
+				                	navigateToList();
+				                }, function(err) {                
+				                	bootbox.alert(err);
+				                });                                    
+							}
+						},
+						cancel : {
+							label : "No",
+							className : "btn-default",
+							callback : function() {	}
+						}						
+					}
+				});            	            	
             };
             
-            $scope.cancel = function() {
-                navigateToList();
+            $scope.cancel = function() {               
+            	navigateToList();
             };
                         
             $scope.action = $routeParams.action;
