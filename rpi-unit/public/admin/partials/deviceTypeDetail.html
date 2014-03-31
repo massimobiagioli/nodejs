@@ -1,54 +1,45 @@
 <!-- Title -->
-<div class="container">
-    <div class="row">
-        <div class="span12 text-center">
-            <h1 ng-show="action==='create'">Nuovo Tipo Dispositivo</h1>
-            <h1 ng-show="action==='edit'">Dettaglio Tipo Dispositivo</h1>            
-        </div>
-    </div>    
-</div>
+<strong ng-show="action==='create'">Nuovo Tipo Dispositivo</strong>
+<strong ng-show="action==='edit'">Dettaglio Tipo Dispositivo</strong>
+
+<hr>
 
 <!-- Toolbar -->
-<div class="container container-custom">    
-    <div class="span12">            
-        <div class="btn-group">
-            <button type="button" class="btn btn-danger" ng-click="del();">Elimina</button>                
-        </div>
-    </div>            
+<div class="row" ng-show="action==='edit'">
+	<div class="col-md-2">
+		<div class="btn-group btn-group-justified">
+			<a ng-click="del()" class="btn btn-danger col-sm-3"> <i
+				class="glyphicon glyphicon-trash"></i><br>Elimina
+			</a>
+		</div>
+	</div>
 </div>
+<!--/Toolbar-->
 
-<br/>
+<br />
 
-<!-- Dati -->
-<div class="container container-custom">           
-    <div class="row" ng-show="action==='edit'">
-        <div class="span4 text-right">
-            <span><b>Id</b></span>
-        </div>          
-        <div class="span8 text-left">            
-            <input type="text" ng-model="data.id" ng-disabled="action==='edit'">
-        </div>        
-    </div>    
-    <div class="row">
-        <div class="span4 text-right">
-            <span><b>Nome</b></span>
-        </div>          
-        <div class="span8 text-left">
-            <input type="text" ng-model="data.name">
-        </div>        
-    </div>          
+<!-- Data -->
+<div class="row">
+	<div class="control-group" ng-show="action==='edit'">
+		<label>ID</label>
+		<div class="controls">
+			<input type="text" ng-model="data.id" class="form-control" autofocus="autofocus" ng-disabled="action==='edit'">
+		</div>
+	</div>
+
+	<div class="control-group">
+		<label>Nome</label>
+		<div class="controls">
+			<input type="text" ng-model="data.name" class="form-control" autofocus="autofocus">
+		</div>
+	</div>
+
+	<div class="control-group">
+		<label></label>
+		<div class="controls">
+			<button type="button" class="btn btn-success" ng-click="ok();">Ok</button>
+            <button type="button" class="btn btn-default" ng-click="cancel();">Annulla</button>
+		</div>
+	</div>
 </div>
-
-<br/>
-
-<!-- Pulsanti -->
-<div class="container container-custom"> 
-    <div class="row">
-        <div class="span12 text-center">
-            <div class="btn-group">
-                <button type="button" class="btn btn-success" ng-click="ok();">Ok</button>
-                <button type="button" class="btn btn-default" ng-click="cancel();">Annulla</button>
-            </div>
-        </div>    
-    </div>
-</div>
+<!--/Data-->

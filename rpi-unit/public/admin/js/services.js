@@ -70,4 +70,7 @@ angular.module('ngRUAApp.services', []).
             update: update,
             del: del
         };
+    }]).
+    factory('ControllerHelperFactory', ['CRUDModelFactory', function(CRUDModelFactory) {
+    	
     }]);
