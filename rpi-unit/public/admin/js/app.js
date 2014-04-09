@@ -13,4 +13,10 @@ config(['$routeProvider', function($routeProvider) {
         .when('/deviceTypeDetail/:action', {templateUrl: 'partials/deviceTypeDetail.html', controller: 'DeviceTypeDetailController'})
         .when('/deviceTypeDetail/:action/:id', {templateUrl: 'partials/deviceTypeDetail.html', controller: 'DeviceTypeDetailController'})
         .otherwise({redirectTo: '/home'});
-}]);
+}]).
+run(function($rootScope, $location) {
+	$rootScope.$on("$routeChangeStart", function(event, next, current) {
+		//if !userIsLoggedOn ...
+		//$location.path('/login');
+	});
+});
