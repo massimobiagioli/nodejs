@@ -121,7 +121,7 @@ var update = function(request, response) {
 	});	
 };
 
-var del = function(request, response) {
+var del = function(request, response) {	
 	dbLayer.openConnection().then(function() {
 		checkPassword(request).then(function() {
 			dbLayer.del(request.params['tableKey'], request.params['tableId']).then(function(result) {

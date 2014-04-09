@@ -5,15 +5,7 @@
 <hr>
 
 <!-- Toolbar -->
-<div class="row" ng-show="action==='edit'">
-	<div class="col-md-2">
-		<div class="btn-group btn-group-justified">
-			<a ng-click="del()" class="btn btn-danger col-sm-3"> <i
-				class="glyphicon glyphicon-trash"></i><br>Elimina
-			</a>
-		</div>
-	</div>
-</div>
+<div ng-include src="'partials/includes/detailToolbar.html'"/>
 <!--/Toolbar-->
 
 <br />
@@ -34,12 +26,6 @@
 		</div>
 	</div>
 
-	<div class="control-group">
-		<label></label>
-		<div class="controls">
-			<button type="button" class="btn btn-success" ng-click="ok();">Ok</button>
-            <button type="button" class="btn btn-default" ng-click="cancel();">Annulla</button>
-		</div>
-	</div>
+	<div ng-include src="'partials/includes/detailButtons.html'"/>
 </div>
 <!--/Data-->
