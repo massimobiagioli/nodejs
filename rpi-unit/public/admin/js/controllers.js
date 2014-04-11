@@ -5,8 +5,8 @@ angular.module('ngRUAApp.controllers', []).
         function($scope) {            
         }
     ]).    
-    controller('LoginController', ['$scope', '$rootScope', '$location',
-        function($scope, $rootScope, $location) {     
+    controller('LoginController', ['$scope', '$rootScope', '$location', 'LoginFactory',
+        function($scope, $rootScope, $location, LoginFactory) {     
     		$scope.username = '';
     		$scope.password = '';
     		$scope.login = function() {

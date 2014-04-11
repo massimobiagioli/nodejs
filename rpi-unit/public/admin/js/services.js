@@ -160,4 +160,9 @@ angular.module('ngRUAApp.services', []).
             update: update,
             del: del
         };
+    }]).
+    factory('LoginFactory', ['$rootScope', function($rootScope) {    
+    	return {
+    		
+    	};
     }]);
