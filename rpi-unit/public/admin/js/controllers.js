@@ -1,101 +1,29 @@
 'use strict';
 
-function BaseListController(modelKey, $scope, $location, CRUDModelFactory) {                        
-    $scope.list = function() {
-        CRUDModelFactory.list(modelKey).then(function(data) {                
-            $scope.data = data.result;
-        }, function(err) {                
-        	bootbox.alert(err);
-        });                
-    };
-    
-    $scope.prepareForCreate = function() {
-        $location.path('/' + modelKey + 'Detail/create');
-    };
-    
-    $scope.list();    		    		
-}
-
-function BaseDetailController (modelKey, $scope, $location, $routeParams, CRUDModelFactory) {
-    var navigateToList = function() {
-        $location.path('/' + modelKey + 'List');
-    };                       
-    
-    $scope.get = function(id) {
-        CRUDModelFactory.get(modelKey, id).then(function(data) {                
-            $scope.data = data.result;
-        }, function(err) {                
-        	bootbox.alert(err);
-        });                
-    };
-    
-    $scope.ok = function() {
-        if ('create' === $scope.action) {
-            CRUDModelFactory.insert(modelKey, $scope.data).then(function(result) {                
-                $scope.lastInsertId = result;
-                navigateToList();
-            }, function(err) {                
-            	bootbox.alert(err);
-            }); 
-        } else if ('edit' === $scope.action) { 
-            CRUDModelFactory.update(modelKey, $scope.data).then(function(result) {                                        
-                navigateToList();
-            }, function(err) {                
-            	bootbox.alert(err);
-            });  
-        }                   
-    };
-    
-    $scope.del = function() {                
-		bootbox.dialog({
-			message : "Cancellare " + $scope.displayName() + "?",
-			title : "Conferma cancellazione",
-			buttons : {
-				ok : {
-					label : "Si",
-					className : "btn-success",
-					callback : function() {
-						CRUDModelFactory.del(modelKey, $scope.data.id).then(function(result) {                
-		                	navigateToList();
-		                }, function(err) {                
-		                	bootbox.alert(err);
-		                });                                    
-					}
-				},
-				cancel : {
-					label : "No",
-					className : "btn-default",
-					callback : function() {	}
-				}						
-			}
-		});            	            	
-    };
-    
-    $scope.cancel = function() {               
-    	navigateToList();
-    };
-                
-    $scope.action = $routeParams.action;
-                
-    if ('create' === $scope.action) {
-        $scope.create();
-    } else if ('edit' === $scope.action) {                
-        $scope.get($routeParams.id);           
-    }                        
-}
-
 angular.module('ngRUAApp.controllers', []).
     controller('HomeController', ['$scope',  
         function($scope) {            
         }
     ]).    
-    controller('DeviceTypeListController', ['$scope', '$location', 'CRUDModelFactory', 
-        function($scope, $location, CRUDModelFactory) {                                    
-    		angular.extend(this, new BaseListController('deviceType', $scope, $location, CRUDModelFactory));
+    controller('LoginController', ['$scope', '$rootScope', '$location',
+        function($scope, $rootScope, $location) {     
+    		$scope.username = '';
+    		$scope.password = '';
+    		$scope.login = function() {
+    			//TODO completare ...
+    			$rootScope.username = $scope.username;
+    			
+    			$location.path('/home');
+    		};
+    	}
+    ]).        
+    controller('DeviceTypeListController', ['$scope', '$location', 'CRUDModelFactory', 'CRUDControllerFactory',
+        function($scope, $location, CRUDModelFactory, CRUDControllerFactory) {                                    
+    		angular.extend(this, CRUDControllerFactory.BaseListController('deviceType', $scope, $location, CRUDModelFactory));
         }
     ]).
-    controller('DeviceTypeDetailController', ['$scope', '$location', '$routeParams', 'CRUDModelFactory', 
-        function($scope, $location, $routeParams, CRUDModelFactory) {                            		    		    		    	    
+    controller('DeviceTypeDetailController', ['$scope', '$location', '$routeParams', 'CRUDModelFactory', 'CRUDControllerFactory',
+        function($scope, $location, $routeParams, CRUDModelFactory, CRUDControllerFactory) {                            		    		    		    	    
     		$scope.displayName = function() {
     			return $scope.data.name;
     		};    
@@ -103,7 +31,7 @@ angular.module('ngRUAApp.controllers', []).
     	        $scope.data = {};
     	        $scope.data.name = 'xxx';
     	    };
-    	    angular.extend(this, new BaseDetailController('deviceType', $scope, $location, $routeParams, CRUDModelFactory));
+    	    angular.extend(this, CRUDControllerFactory.BaseDetailController('deviceType', $scope, $location, $routeParams, CRUDModelFactory));
         }
     ]);
             
