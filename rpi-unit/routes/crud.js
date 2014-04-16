@@ -23,11 +23,9 @@ var handleError = function(response, errorCode, errorMsg) {
 	}));
 };
 
-var checkPassword = function(request) {
+var checkUserAndPassword = function(username, password) {
 	var token,		
-		deferred = q.defer(),
-		username = request.headers['x-username'] || null,
-		password = request.headers['x-password'] || null;
+		deferred = q.defer();		
 	
 	if (username && password) {		
 		dbLayer.findUserByName(username).then(function(result) {
@@ -46,6 +44,13 @@ var checkPassword = function(request) {
 	}	
 	
 	return deferred.promise;	
+};
+
+var checkPassword = function(request) {
+	var username = request.headers['x-username'] || null,
+		password = request.headers['x-password'] || null;
+	
+	return checkUserAndPassword(username, password);
 };
 
 var list = function(request, response) {
@@ -139,10 +144,28 @@ var del = function(request, response) {
 	});	
 };
 
+var checkLogin = function(request, response) {
+	var username = request.headers['x-username'] || null,
+		password = request.headers['x-password'] || null;
+
+	dbLayer.openConnection().then(function() {
+		checkUserAndPassword(username, password).then(function() {			
+			dbLayer.closeConnection();
+			handleSuccess(response, 'ok');
+		}, function(err) {
+			dbLayer.closeConnection();
+			handleError(response, 500, err);
+		});		
+	}, function(err) {
+		handleError(response, 500, errors.ERR_OPEN_CONNECTION);
+	});	
+};
+
 module.exports = {	
 	list: list,
 	get: get,
 	insert: insert,
 	update: update,
-	del: del	
+	del: del,
+	checkLogin: checkLogin
 };

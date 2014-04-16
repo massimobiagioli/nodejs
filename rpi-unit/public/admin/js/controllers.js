@@ -10,10 +10,18 @@ angular.module('ngRUAApp.controllers', []).
     		$scope.username = '';
     		$scope.password = '';
     		$scope.login = function() {
-    			//TODO completare ...
-    			$rootScope.username = $scope.username;
     			
-    			$location.path('/home');
+    			var loggedIn = LoginFactory.checkLogin($scope.username, $scope.password).then(function() {                
+    				bootbox.alert("ok");
+		        }, function() {                
+		        	bootbox.alert("errore");
+		        });                
+    			    			
+    			
+    			//TODO completare ...
+    			//$rootScope.username = $scope.username;
+    			
+    			//$location.path('/home');
     		};
     	}
     ]).        
@@ -28,8 +36,7 @@ angular.module('ngRUAApp.controllers', []).
     			return $scope.data.name;
     		};    
     		$scope.create = function() {
-    	        $scope.data = {};
-    	        $scope.data.name = 'xxx';
+    	        $scope.data = {};    	        
     	    };
     	    angular.extend(this, CRUDControllerFactory.BaseDetailController('deviceType', $scope, $location, $routeParams, CRUDModelFactory));
         }

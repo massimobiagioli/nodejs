@@ -1,6 +1,13 @@
 'use strict';
 
 angular.module('ngRUAApp.services', []).
+	factory('GlobalSettings', function() {
+		return {
+			services: {
+				urlBase: '/api'
+			}
+		}
+	}).
 	factory('CRUDControllerFactory', function() {
 		var BaseListController = function BaseListController(modelKey, $scope, $location, CRUDModelFactory) {                        
 		    $scope.list = function() {
@@ -91,8 +98,7 @@ angular.module('ngRUAApp.services', []).
 			BaseDetailController: BaseDetailController
 		};
 	}).
-    factory('CRUDModelFactory', ['$http', function($http) {        
-        var urlBase = '/api';        
+    factory('CRUDModelFactory', ['$http', 'GlobalSettings', function($http, GlobalSettings) {                        
         var username = "unit";
         var password = "Un1t&";                        
         
@@ -104,7 +110,7 @@ angular.module('ngRUAApp.services', []).
         };
         
         var list = function(modelKey) {                        
-            var promise = $http.get(urlBase + '/list/' + modelKey, {
+            var promise = $http.get(GlobalSettings.services.urlBase + '/list/' + modelKey, {
                 headers: getHeaders()                
             }).then(function(response) {
                 return response.data;
@@ -114,7 +120,7 @@ angular.module('ngRUAApp.services', []).
         };
         
         var get = function(modelKey, id) {
-            var promise = $http.get(urlBase + '/get/' + modelKey + '/' + id, {
+            var promise = $http.get(GlobalSettings.services.urlBase + '/get/' + modelKey + '/' + id, {
                 headers: getHeaders()                
             }).then(function(response) {
                 return response.data;
@@ -124,7 +130,7 @@ angular.module('ngRUAApp.services', []).
         };
         
         var insert = function(modelKey, model) {
-            var promise = $http.post(urlBase + '/insert/' + modelKey, { model: model }, {
+            var promise = $http.post(GlobalSettings.services.urlBase + '/insert/' + modelKey, { model: model }, {
                 headers: getHeaders(),                
             }).then(function(response) {
                 return response.data;
@@ -134,7 +140,7 @@ angular.module('ngRUAApp.services', []).
         };
         
         var update = function(modelKey, model) {
-            var promise = $http.put(urlBase + '/update/' + modelKey + '/' + model.id, { model: model }, {
+            var promise = $http.put(GlobalSettings.services.urlBase + '/update/' + modelKey + '/' + model.id, { model: model }, {
                 headers: getHeaders(),                
             }).then(function(response) {
                 return response.data;
@@ -144,7 +150,7 @@ angular.module('ngRUAApp.services', []).
         };
         
         var del = function(modelKey, id) {
-            var promise = $http.delete(urlBase + '/delete/' + modelKey + '/' + id, {
+            var promise = $http.delete(GlobalSettings.services.urlBase + '/delete/' + modelKey + '/' + id, {
                 headers: getHeaders(),                
             }).then(function(response) {
                 return response.data;
@@ -161,8 +167,21 @@ angular.module('ngRUAApp.services', []).
             del: del
         };
     }]).
-    factory('LoginFactory', ['$rootScope', function($rootScope) {    
+    factory('LoginFactory', ['$http', 'GlobalSettings', function($http, GlobalSettings) {        	    	
+    	var checkLogin = function(username, password) {                		
+    		var promise = $http.get(GlobalSettings.services.urlBase + '/checkLogin', {
+            	headers: {
+            		'X-Username': username,
+                    'X-Password': password
+                }                
+            }).then(function(response) {
+                return response.data;
+            });
+
+            return promise;            
+        };
+        
     	return {
-    		
+    		checkLogin: checkLogin
     	};
     }]);
