@@ -10,21 +10,23 @@
 	<div class="control-group">
 		<label>Utente</label>
 		<div class="controls">
-			<input type="text" ng-model="username" class="form-control" autofocus="autofocus">
+			<input type="text" ng-model="username" autofocus="autofocus" 
+				class="form-control" autofocus="autofocus" style="width:50%">
 		</div>
 	</div>
 
 	<div class="control-group">
 		<label>Password</label>
 		<div class="controls">
-			<input type="text" ng-model="password" class="form-control">
+			<input type="password" ng-model="password" 
+				class="form-control" style="width:50%">
 		</div>
 	</div>	
 	
 	<div class="control-group">
 		<label></label>
 		<div class="controls">
-			<button type="button" class="btn btn-primary" ng-click="login();">Login</button>        	
+			<button type="button" class="btn btn-primary" ng-click="login()">Login</button>        	
 		</div>
 	</div>
 </div>

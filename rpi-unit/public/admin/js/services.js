@@ -98,14 +98,11 @@ angular.module('ngRUAApp.services', []).
 			BaseDetailController: BaseDetailController
 		};
 	}).
-    factory('CRUDModelFactory', ['$http', 'GlobalSettings', function($http, GlobalSettings) {                        
-        var username = "unit";
-        var password = "Un1t&";                        
-        
+    factory('CRUDModelFactory', ['$http', '$rootScope', 'GlobalSettings', function($http, $rootScope, GlobalSettings) {                                
         var getHeaders = function() {                        
             return {                
-                'X-Username': username,
-                'X-Password': password
+                'X-Username': $rootScope.loginInfo.username,
+                'X-Password': $rootScope.loginInfo.password
             };                        
         };
         

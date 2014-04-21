@@ -17,7 +17,8 @@ config(['$routeProvider', function($routeProvider) {
 }]).
 run(function($rootScope, $location) {
 	$rootScope.$on("$routeChangeStart", function(event, next, current) {
-		//if !userIsLoggedOn ...
-		//$location.path('/login');
+		if (!$rootScope.loggedIn) {
+			$location.path('/login');
+		}		
 	});
 });

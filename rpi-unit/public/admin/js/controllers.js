@@ -1,7 +1,26 @@
 'use strict';
 
 angular.module('ngRUAApp.controllers', []).
-    controller('HomeController', ['$scope',  
+	controller('MainController', ['$scope', '$rootScope', '$location',  
+	    function($scope, $rootScope, $location) {
+			var displayUsername = function() {
+				$scope.username = $rootScope.loggedIn ? $rootScope.loginInfo.username : 'guest';
+			};
+						
+			$rootScope.$watch('loggedIn', function() {
+				displayUsername();
+			});
+			
+			displayUsername();
+			
+			$scope.logout = function() {
+				$rootScope.loginInfo = {};  
+    			$rootScope.loggedIn = false;
+				$location.path('/login');
+			}
+      	}
+	]).
+	controller('HomeController', ['$scope',  
         function($scope) {            
         }
     ]).    
@@ -9,19 +28,19 @@ angular.module('ngRUAApp.controllers', []).
         function($scope, $rootScope, $location, LoginFactory) {     
     		$scope.username = '';
     		$scope.password = '';
-    		$scope.login = function() {
-    			
-    			var loggedIn = LoginFactory.checkLogin($scope.username, $scope.password).then(function() {                
-    				bootbox.alert("ok");
+    		$scope.login = function() {    			
+    			$rootScope.loginInfo = {};  
+    			$rootScope.loggedIn = false;
+    			LoginFactory.checkLogin($scope.username, $scope.password).then(function() {                    				
+    				$rootScope.loginInfo.username = $scope.username;
+    				$rootScope.loginInfo.password = $scope.password;
+    				$rootScope.loggedIn = true;
+    				$location.path('/home');
 		        }, function() {                
-		        	bootbox.alert("errore");
-		        });                
-    			    			
-    			
-    			//TODO completare ...
-    			//$rootScope.username = $scope.username;
-    			
-    			//$location.path('/home');
+		        	bootbox.alert("Username o password errati!");
+		        	$scope.username = '';
+		        	$scope.password = '';
+		        });                    			    			    			
     		};
     	}
     ]).        
