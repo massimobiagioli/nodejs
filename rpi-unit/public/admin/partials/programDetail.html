@@ -1,0 +1,38 @@
+<!-- Title -->
+<strong ng-show="action==='create'">Nuovo Tipo Dispositivo</strong>
+<strong ng-show="action==='edit'">Dettaglio Tipo Dispositivo</strong>
+
+<hr>
+
+<!-- Toolbar -->
+<div ng-include src="'partials/includes/detailToolbar.html'"/>
+<!--/Toolbar-->
+
+<br />
+
+<!-- Data -->
+<div class="row">
+	<div class="control-group" ng-show="action==='edit'">
+		<label>ID</label>
+		<div class="controls">
+			<input type="text" ng-model="data.id" class="form-control" autofocus="autofocus" ng-disabled="action==='edit'">
+		</div>
+	</div>
+
+	<div class="control-group">
+		<label>Nome</label>
+		<div class="controls">
+			<input type="text" ng-model="data.name" class="form-control" autofocus="autofocus">
+		</div>
+	</div>
+	
+	<div class="control-group">
+		<label>Tipo dispositivo</label>
+		<div class="controls">
+			<input type="text" ng-model="data.id_device_type" class="form-control">
+		</div>
+	</div>
+	
+	<div ng-include src="'partials/includes/detailButtons.html'"/>
+</div>
+<!--/Data-->

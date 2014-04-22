@@ -13,6 +13,9 @@ config(['$routeProvider', function($routeProvider) {
         .when('/deviceTypeList', {templateUrl: 'partials/deviceTypeList.html', controller: 'DeviceTypeListController'})
         .when('/deviceTypeDetail/:action', {templateUrl: 'partials/deviceTypeDetail.html', controller: 'DeviceTypeDetailController'})
         .when('/deviceTypeDetail/:action/:id', {templateUrl: 'partials/deviceTypeDetail.html', controller: 'DeviceTypeDetailController'})
+        .when('/programList', {templateUrl: 'partials/programList.html', controller: 'ProgramListController'})
+        .when('/programDetail/:action', {templateUrl: 'partials/programDetail.html', controller: 'ProgramController'})
+        .when('/programDetail/:action/:id', {templateUrl: 'partials/programDetail.html', controller: 'ProgramDetailController'})
         .otherwise({redirectTo: '/home'});
 }]).
 run(function($rootScope, $location) {

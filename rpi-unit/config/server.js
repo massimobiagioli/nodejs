@@ -11,7 +11,8 @@ module.exports = {
 			'path': __dirname + '/../data/rpi-unit.db'
 		},
 		tableMap: {
-			'deviceType': 'device_types'	
+			'deviceType': 'device_types',
+			'program': 'programs'
 		}
 	}
 };

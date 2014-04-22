@@ -1,0 +1,31 @@
+<!-- Title -->
+<strong>Programmi</strong>
+
+<hr>
+
+<!-- Toolbar -->
+<div ng-include src="'partials/includes/managementToolbar.html'"/>
+<!--/Toolbar-->
+
+<hr>
+
+<!-- Dati -->
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Descrizione</th>
+			<th>Tipo dispositivo</th>
+		</tr>
+	</thead>
+	<tbody ng-repeat="item in data">
+		<tr>
+			<td>{{item.id}}</td>
+			<td><a href="#/programDetail/edit/{{item.id}}">{{item.name}}</a></td>
+			<td>{{item.id_device_type}}</td>
+		</tr>
+	</tbody>
+</table>
+<!--/Dati-->
+
+<hr>

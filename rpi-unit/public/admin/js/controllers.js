@@ -59,5 +59,20 @@ angular.module('ngRUAApp.controllers', []).
     	    };
     	    angular.extend(this, CRUDControllerFactory.BaseDetailController('deviceType', $scope, $location, $routeParams, CRUDModelFactory));
         }
-    ]);
-            
+    ]).
+    controller('ProgramListController', ['$scope', '$location', 'CRUDModelFactory', 'CRUDControllerFactory',
+        function($scope, $location, CRUDModelFactory, CRUDControllerFactory) {                                    
+    		angular.extend(this, CRUDControllerFactory.BaseListController('program', $scope, $location, CRUDModelFactory));
+        }
+    ]).
+    controller('ProgramDetailController', ['$scope', '$location', '$routeParams', 'CRUDModelFactory', 'CRUDControllerFactory',
+	    function($scope, $location, $routeParams, CRUDModelFactory, CRUDControllerFactory) {                            		    		    		    	    
+	  		$scope.displayName = function() {
+	  			return $scope.data.name;
+	  		};    
+	  		$scope.create = function() {
+	  	        $scope.data = {};    	        
+	  	    };
+	  	    angular.extend(this, CRUDControllerFactory.BaseDetailController('program', $scope, $location, $routeParams, CRUDModelFactory));
+	      }
+	]);
