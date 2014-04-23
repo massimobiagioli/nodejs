@@ -73,6 +73,17 @@ angular.module('ngRUAApp.controllers', []).
 	  		$scope.create = function() {
 	  	        $scope.data = {};    	        
 	  	    };
+	  	    
+	  	    $scope.loadDeviceTypes = function() {
+		        CRUDModelFactory.list("deviceType").then(function(data) {                
+		            $scope.deviceTypes = data.result;
+		        }, function(err) {                
+		        	bootbox.alert(err);
+		        });                		    
+	  	    };
+	  	    
 	  	    angular.extend(this, CRUDControllerFactory.BaseDetailController('program', $scope, $location, $routeParams, CRUDModelFactory));
+	  	    
+	  	    $scope.loadDeviceTypes();
 	      }
 	]);

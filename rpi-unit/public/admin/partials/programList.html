@@ -20,9 +20,9 @@
 	</thead>
 	<tbody ng-repeat="item in data">
 		<tr>
-			<td>{{item.id}}</td>
+			<td><a href="#/programDetail/edit/{{item.id}}">{{item.id}}</a></td>
 			<td><a href="#/programDetail/edit/{{item.id}}">{{item.name}}</a></td>
-			<td>{{item.id_device_type}}</td>
+			<td><a href="#/deviceTypeDetail/edit/{{item.id_device_type}}">{{item.name_device_type}}</a></td>
 		</tr>
 	</tbody>
 </table>

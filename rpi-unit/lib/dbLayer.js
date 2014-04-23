@@ -40,9 +40,21 @@ module.exports = (function(config) {
 		
 		return deferred.promise;
 	};
+
+	var getTable = function(tableKey) {
+		return config.tableMap[tableKey].table;
+	};
+	
+	var getView = function(tableKey) {
+		if (_.has(config.tableMap[tableKey], 'view')) {
+			return config.tableMap[tableKey].view;
+		} else {
+			return getTable(tableKey);
+		}
+	};
 	
 	var list = function(tableKey, queryobj) {						
-		var	select = dbWrapper.getSelect().from(config.tableMap[tableKey]),
+		var	select = dbWrapper.getSelect().from(getView(tableKey)),
 			deferred = q.defer();
 		
 		if (queryobj) {
@@ -81,7 +93,7 @@ module.exports = (function(config) {
 	var get = function(tableKey, id) {
 		var deferred = q.defer();
 		
-		dbWrapper.fetchRow('SELECT * FROM ' + config.tableMap[tableKey] + ' WHERE id=?', [id], function(err, result) {
+		dbWrapper.fetchRow('SELECT * FROM ' + getView(tableKey) + ' WHERE id=?', [id], function(err, result) {
 			if (err) {
 				deferred.reject(err);
 			} else {
@@ -95,7 +107,7 @@ module.exports = (function(config) {
 	var insert = function(tableKey, data) {
 		var deferred = q.defer();
 		
-		dbWrapper.insert(config.tableMap[tableKey], data, function(err) {
+		dbWrapper.insert(getTable(tableKey), data, function(err) {
 			if (err) {
 				deferred.reject(err);
 			} else {
@@ -109,7 +121,7 @@ module.exports = (function(config) {
 	var update = function(tableKey, id, data) {
 		var deferred = q.defer();
 		
-		dbWrapper.update(config.tableMap[tableKey], data, [['id=?', id]], function(err, result) {
+		dbWrapper.update(getTable(tableKey), data, [['id=?', id]], function(err, result) {
 			if (err) {
 				deferred.reject(err);
 			} else {
@@ -123,7 +135,7 @@ module.exports = (function(config) {
 	var del = function(tableKey, id) {
 		var deferred = q.defer();
 		
-		dbWrapper.remove(config.tableMap[tableKey], [['id=?', id]], function(err, result) {
+		dbWrapper.remove(getTable(tableKey), [['id=?', id]], function(err, result) {
 			if (err) {
 				deferred.reject(err);
 			} else {

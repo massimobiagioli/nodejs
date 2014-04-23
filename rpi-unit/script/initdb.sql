@@ -27,7 +27,7 @@ create table programs (
 /* Programs View #01 */
 drop view if exists programs_v01;
 create view programs_v01 as
-	select programs.*, device_types.name 
+	select programs.*, device_types.name as name_device_type
 	from programs
 	inner join device_types on programs.id_device_type = device_types.id;
 

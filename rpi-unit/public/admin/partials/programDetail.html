@@ -5,7 +5,7 @@
 <hr>
 
 <!-- Toolbar -->
-<div ng-include src="'partials/includes/detailToolbar.html'"/>
+<div ng-include src="'partials/includes/detailToolbar.html'" />
 <!--/Toolbar-->
 
 <br />
@@ -15,24 +15,29 @@
 	<div class="control-group" ng-show="action==='edit'">
 		<label>ID</label>
 		<div class="controls">
-			<input type="text" ng-model="data.id" class="form-control" autofocus="autofocus" ng-disabled="action==='edit'">
+			<input type="text" ng-model="data.id" class="form-control"
+				autofocus="autofocus" ng-disabled="action==='edit'">
 		</div>
 	</div>
 
 	<div class="control-group">
 		<label>Nome</label>
 		<div class="controls">
-			<input type="text" ng-model="data.name" class="form-control" autofocus="autofocus">
+			<input type="text" ng-model="data.name" class="form-control"
+				autofocus="autofocus">
 		</div>
 	</div>
-	
+
 	<div class="control-group">
 		<label>Tipo dispositivo</label>
 		<div class="controls">
-			<input type="text" ng-model="data.id_device_type" class="form-control">
+			<select name="deviceType" class="form-control">
+				<option ng-repeat="deviceType in deviceTypes" ng-selected="{{data.id_device_type == deviceType.id}}"
+					value="{{deviceType.id}}">{{deviceType.name}}</option>
+			</select>
 		</div>
 	</div>
-	
-	<div ng-include src="'partials/includes/detailButtons.html'"/>
+
+	<div ng-include src="'partials/includes/detailButtons.html'" />
 </div>
 <!--/Data-->
