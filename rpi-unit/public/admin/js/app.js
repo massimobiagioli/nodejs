@@ -14,8 +14,18 @@ config(['$routeProvider', function($routeProvider) {
         .when('/deviceTypeDetail/:action', {templateUrl: 'partials/deviceTypeDetail.html', controller: 'DeviceTypeDetailController'})
         .when('/deviceTypeDetail/:action/:id', {templateUrl: 'partials/deviceTypeDetail.html', controller: 'DeviceTypeDetailController'})
         .when('/programList', {templateUrl: 'partials/programList.html', controller: 'ProgramListController'})
-        .when('/programDetail/:action', {templateUrl: 'partials/programDetail.html', controller: 'ProgramController'})
-        .when('/programDetail/:action/:id', {templateUrl: 'partials/programDetail.html', controller: 'ProgramDetailController'})
+        .when('/programDetail/:action', {templateUrl: 'partials/programDetail.html', controller: 'ProgramDetailController', 
+        	resolve: {
+        		deviceTypes: ['CRUDModelFactory', function(CRUDModelFactory) {
+        	        return CRUDModelFactory.list("deviceType");    
+        		}]	  	    	
+        	}})
+        .when('/programDetail/:action/:id', {templateUrl: 'partials/programDetail.html', controller: 'ProgramDetailController', 
+        	resolve: {
+        		deviceTypes: ['CRUDModelFactory', function(CRUDModelFactory) {
+        	        return CRUDModelFactory.list("deviceType");    
+        		}]	  	    	
+        	}})
         .otherwise({redirectTo: '/home'});
 }]).
 run(function($rootScope, $location) {

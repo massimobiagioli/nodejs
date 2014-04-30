@@ -31,8 +31,8 @@
 	<div class="control-group">
 		<label>Tipo dispositivo</label>
 		<div class="controls">
-			<select name="deviceType" class="form-control">
-				<option ng-repeat="deviceType in deviceTypes" ng-selected="{{data.id_device_type == deviceType.id}}"
+			<select name="deviceType" class="form-control" ng-model="data.id_device_type">
+				<option ng-repeat="deviceType in deviceTypes" ng-selected="{{data.id_device_type === deviceType.id}}"
 					value="{{deviceType.id}}">{{deviceType.name}}</option>
 			</select>
 		</div>
