@@ -98,7 +98,7 @@ angular.module('ngRUAApp.services', []).
 			BaseDetailController: BaseDetailController
 		};
 	}).
-    factory('CRUDModelFactory', ['$http', '$rootScope', 'GlobalSettings', function($http, $rootScope, GlobalSettings) {                                
+    factory('CRUDModelFactory', ['$http', '$rootScope', '$q', 'GlobalSettings', function($http, $rootScope, $q, GlobalSettings) {                                
         var getHeaders = function() {                        
             return {                
                 'X-Username': $rootScope.loginInfo.username,
@@ -107,53 +107,68 @@ angular.module('ngRUAApp.services', []).
         };
         
         var list = function(modelKey) {                        
-            var promise = $http.get(GlobalSettings.services.urlBase + '/list/' + modelKey, {
-                headers: getHeaders()                
-            }).then(function(response) {
-                return response.data;
-            });
-
-            return promise;
+        	var deferred = $q.defer(),    	
+        		promise = $http.get(GlobalSettings.services.urlBase + '/list/' + modelKey, {
+	                headers: getHeaders()                
+	            }).then(function(response) {
+	            	deferred.resolve(response.data);
+	            }, function(err) {
+	            	deferred.reject(err.data.error);
+	            });
+       
+            return deferred.promise;     
         };
         
         var get = function(modelKey, id) {
-            var promise = $http.get(GlobalSettings.services.urlBase + '/get/' + modelKey + '/' + id, {
-                headers: getHeaders()                
-            }).then(function(response) {
-                return response.data;
-            });
-
-            return promise;            
+        	var deferred = $q.defer(),
+        		promise = $http.get(GlobalSettings.services.urlBase + '/get/' + modelKey + '/' + id, {
+	                headers: getHeaders()                
+	            }).then(function(response) {
+	            	deferred.resolve(response.data);
+	            }, function(err) {
+	            	deferred.reject(err.data.error);
+	            });
+       
+            return deferred.promise;           
         };
         
         var insert = function(modelKey, model) {
-            var promise = $http.post(GlobalSettings.services.urlBase + '/insert/' + modelKey, { model: model }, {
-                headers: getHeaders(),                
-            }).then(function(response) {
-                return response.data;
-            });
+        	var deferred = $q.defer(),
+        		promise = $http.post(GlobalSettings.services.urlBase + '/insert/' + modelKey, { model: model }, {
+	                headers: getHeaders(),                
+	            }).then(function(response) {
+	            	deferred.resolve(response.data);
+	            }, function(err) {
+	            	deferred.reject(err.data.error);
+	            });
 
-            return promise;            
+        	return deferred.promise;            
         };
         
         var update = function(modelKey, model) {
-            var promise = $http.put(GlobalSettings.services.urlBase + '/update/' + modelKey + '/' + model.id, { model: model }, {
-                headers: getHeaders(),                
-            }).then(function(response) {
-                return response.data;
-            });
-
-            return promise;            
+        	var deferred = $q.defer(),        	        	
+        		promise = $http.put(GlobalSettings.services.urlBase + '/update/' + modelKey + '/' + model.id, { model: model }, {
+	                headers: getHeaders(),                
+	            }).then(function(response) {
+	            	deferred.resolve(response.data);
+	            }, function(err) {
+	            	deferred.reject(err.data.error);
+	            });
+       
+            return deferred.promise;            
         };
         
         var del = function(modelKey, id) {
-            var promise = $http.delete(GlobalSettings.services.urlBase + '/delete/' + modelKey + '/' + id, {
-                headers: getHeaders(),                
-            }).then(function(response) {
-                return response.data;
-            });
+        	var deferred = $q.defer(),        	
+        		promise = $http.delete(GlobalSettings.services.urlBase + '/delete/' + modelKey + '/' + id, {
+	                headers: getHeaders(),                
+	            }).then(function(response) {
+	            	deferred.resolve(response.data);
+	            }, function(err) {
+	            	deferred.reject(err.data.error);
+	            });
 
-            return promise;            
+        	return deferred.promise;             
         };
         
         return {

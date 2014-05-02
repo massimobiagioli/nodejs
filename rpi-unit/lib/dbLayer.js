@@ -81,7 +81,7 @@ module.exports = (function(config) {
 		
 		dbWrapper.fetchAll(select, function(err, result) {
 			if (err) {
-				deferred.reject(err);
+				deferred.reject(err.message);
 			} else {
 				deferred.resolve(result);
 			}
@@ -95,7 +95,7 @@ module.exports = (function(config) {
 		
 		dbWrapper.fetchRow('SELECT * FROM ' + getView(tableKey) + ' WHERE id=?', [id], function(err, result) {
 			if (err) {
-				deferred.reject(err);
+				deferred.reject(err.message);
 			} else {
 				deferred.resolve(result);
 			}
@@ -106,27 +106,38 @@ module.exports = (function(config) {
 	
 	var insert = function(tableKey, data) {
 		var deferred = q.defer();
-		
+						
 		dbWrapper.insert(getTable(tableKey), data, function(err) {
 			if (err) {
-				deferred.reject(err);
+				deferred.reject(err.message);
 			} else {
 				deferred.resolve(dbWrapper.getLastInsertId());
 			}
-		});
-		
+		});				
+			
 		return deferred.promise;
 	};
 	
 	var update = function(tableKey, id, data) {
 		var deferred = q.defer();
 		
-		dbWrapper.update(getTable(tableKey), data, [['id=?', id]], function(err, result) {
+		dbWrapper.fetchRow('SELECT * FROM ' + getTable(tableKey) + ' WHERE id=?', [data.id], function(err, model) {			
 			if (err) {
-				deferred.reject(err);
-			} else {
-				deferred.resolve(result);
-			}
+				deferred.reject(err.message);
+			} else {				
+				
+				_.each(_.keys(model), function(property) {
+					model[property] = data[property];
+				});
+		
+				dbWrapper.update(getTable(tableKey), model, [['id=?', id]], function(err, result) {
+					if (err) {
+						deferred.reject(err.message);
+					} else {
+						deferred.resolve(result);
+					}
+				});
+			};
 		});
 		
 		return deferred.promise;
@@ -137,7 +148,7 @@ module.exports = (function(config) {
 		
 		dbWrapper.remove(getTable(tableKey), [['id=?', id]], function(err, result) {
 			if (err) {
-				deferred.reject(err);
+				deferred.reject(err.message);
 			} else {
 				deferred.resolve(result);
 			}
