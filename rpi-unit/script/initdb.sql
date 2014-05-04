@@ -24,6 +24,26 @@ create table programs (
 	FOREIGN KEY(id_device_type) REFERENCES device_types(id)
 );
 
+/* 
+Parameters
+Type:
+	1-String
+	2-Number
+	3-Date
+Scope:
+	1-DeviceType
+	2-Program
+*/
+drop table if exists parameters;
+create table parameters (
+	id integer primary key autoincrement,
+	name string not null,
+	value string not null,
+	type integer not null,	
+	scope integer not null,
+	builtin bool not null default 0
+);
+
 /* Programs View #01 */
 drop view if exists programs_v01;
 create view programs_v01 as
@@ -40,3 +60,6 @@ insert into device_types values (2, "ATTiny85");
 
 insert into programs values (1, "Arduino Test Program", 1);
 insert into programs values (2, "ATTiny85 Test Program", 2);
+
+insert into parameters values (1, "Dummy System Parameter", "sys", 1, 2, 1);
+insert into parameters values (2, "Dummy Custom Parameter", "custom", 1, 2, 0); 
