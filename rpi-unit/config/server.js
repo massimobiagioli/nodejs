@@ -17,6 +17,10 @@ module.exports = {
 			'program': {
 				table: 'programs',
 				view: 'programs_v01'
+			},			
+			'status': {
+				table: 'statuses',
+				view: 'statuses_v01'
 			},
 			'parameter': {
 				table: 'parameters'

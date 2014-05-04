@@ -20,9 +20,31 @@ drop table if exists programs;
 create table programs (
 	id integer primary key autoincrement,
 	name string not null,
-	id_device_type integer,
+	id_device_type integer not null,
 	FOREIGN KEY(id_device_type) REFERENCES device_types(id)
 );
+
+/* 
+Statuses 
+Phase:
+	1-Setup
+	2-Loop
+*/
+drop table if exists statuses;
+create table statuses (
+	id integer primary key autoincrement,
+	name string not null,
+	id_program integer not null,
+	phase integer not null,
+	FOREIGN KEY(id_program) REFERENCES programs(id)
+);
+
+/* Statuses View #01 */
+drop view if exists statuses_v01;
+create view statuses_v01 as
+	select statuses.*, programs.name as name_program
+	from statuses
+	inner join programs on statuses.id_program = programs.id;
 
 /* 
 Parameters
@@ -60,6 +82,9 @@ insert into device_types values (2, "ATTiny85");
 
 insert into programs values (1, "Arduino Test Program", 1);
 insert into programs values (2, "ATTiny85 Test Program", 2);
+
+insert into statuses values (1, "Setup", 1, 1);
+insert into statuses values (2, "Loop", 1, 2);
 
 insert into parameters values (1, "Dummy System Parameter", "sys", 1, 2, 1);
 insert into parameters values (2, "Dummy Custom Parameter", "custom", 1, 2, 0); 
