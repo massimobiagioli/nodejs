@@ -73,9 +73,17 @@ angular.module('ngRUAApp.controllers', []).
 	  		$scope.create = function() {
 	  	        $scope.data = {};    	        
 	  	    };
+	  	    $scope.editParameters = function() {
+	  	    	$location.path('/programParameters/' + $scope.data.id);	  	    	
+	  	    };
 	  	    
 	  	    $scope.deviceTypes = deviceTypes.result;
 	  	    
 	  	    angular.extend(this, CRUDControllerFactory.BaseDetailController('program', $scope, $location, $routeParams, CRUDModelFactory));	  	    
-	      }
-	]);
+		}
+	]).
+	controller('ProgramParametersController', ['$scope', '$location', '$routeParams', 'CRUDModelFactory', 'program',
+	    function($scope, $location, $routeParams, CRUDModelFactory, program) {     
+			$scope.program = program.result;
+   	    }
+   	]);

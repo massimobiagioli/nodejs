@@ -24,6 +24,22 @@ create table programs (
 	FOREIGN KEY(id_device_type) REFERENCES device_types(id)
 );
 
+/* Programs View #01 */
+drop view if exists programs_v01;
+create view programs_v01 as
+	select programs.*, device_types.name as name_device_type
+	from programs
+	inner join device_types on programs.id_device_type = device_types.id;
+
+/* Parameters */
+drop table if exists program_parameters;
+create table program_parameters (
+	id integer primary key autoincrement,
+	id_program integer not null,
+	name string not null,
+	value string not null
+);
+
 /* 
 Statuses 
 Phase:
@@ -46,33 +62,6 @@ create view statuses_v01 as
 	from statuses
 	inner join programs on statuses.id_program = programs.id;
 
-/* 
-Parameters
-Type:
-	1-String
-	2-Number
-	3-Date
-Scope:
-	1-DeviceType
-	2-Program
-*/
-drop table if exists parameters;
-create table parameters (
-	id integer primary key autoincrement,
-	name string not null,
-	value string not null,
-	type integer not null,	
-	scope integer not null,
-	builtin bool not null default 0
-);
-
-/* Programs View #01 */
-drop view if exists programs_v01;
-create view programs_v01 as
-	select programs.*, device_types.name as name_device_type
-	from programs
-	inner join device_types on programs.id_device_type = device_types.id;
-
 /* Data */
 insert into users values (1, "admin", "879f4a8ffee8be46f02a9fa2f845a1c0", "Amministratore Sistema", 1);
 insert into users values (2, "unit", "a7fccf7189106bab56a2565bb404fd54", "Utilizzatore", 0);
@@ -83,8 +72,8 @@ insert into device_types values (2, "ATTiny85");
 insert into programs values (1, "Arduino Test Program", 1);
 insert into programs values (2, "ATTiny85 Test Program", 2);
 
+insert into program_parameters values (1, 1, "PROG1_PAR1", "dummy");
+insert into program_parameters values (2, 1, "PROG1_PAR2", "123");
+
 insert into statuses values (1, "Setup", 1, 1);
 insert into statuses values (2, "Loop", 1, 2);
-
-insert into parameters values (1, "Dummy System Parameter", "sys", 1, 2, 1);
-insert into parameters values (2, "Dummy Custom Parameter", "custom", 1, 2, 0); 

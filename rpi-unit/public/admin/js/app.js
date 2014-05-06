@@ -25,6 +25,12 @@ config(['$routeProvider', function($routeProvider) {
         		deviceTypes: ['CRUDModelFactory', function(CRUDModelFactory) {
         	        return CRUDModelFactory.list("deviceType");    
         		}]	  	    	
+        	}})        
+        .when('/programParameters/:id', {templateUrl: 'partials/programParameters.html', controller: 'ProgramParametersController',
+        	resolve: {
+        		program: ['CRUDModelFactory', '$routeParams', function(CRUDModelFactory, $routeParams) {
+        	        return CRUDModelFactory.get("program", $routeParams.id);    
+        		}]	  	    
         	}})
         .otherwise({redirectTo: '/home'});
 }]).

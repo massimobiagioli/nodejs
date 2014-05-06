@@ -5,7 +5,19 @@
 <hr>
 
 <!-- Toolbar -->
-<div ng-include src="'partials/includes/detailToolbar.html'" />
+<div class="row" ng-show="action==='edit'">
+	<div ng-include src="'partials/includes/detailToolbar.html'" />
+	
+	<!-- Pulsanti aggiuntivi-->
+	<div class="col-md-2">
+		<div class="btn-group btn-group-justified">
+			<a ng-click="editParameters()" class="btn btn-info col-sm-3"> <i
+				class="glyphicon glyphicon-th-list"></i><br>Parametri
+			</a>
+		</div>
+	</div>
+	<!-- /Pulsanti aggiuntivi-->
+</div>
 <!--/Toolbar-->
 
 <br />
