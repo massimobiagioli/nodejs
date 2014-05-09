@@ -2,3 +2,22 @@
 <strong>Parametri {{program.name}}</strong>
 
 <hr>
+
+<!-- Dati -->
+<table class="table table-striped">
+	<thead>
+		<tr>			
+			<th>Nome</th>
+			<th>Valore</th>
+		</tr>
+	</thead>
+	<tbody ng-repeat="item in data">
+		<tr>
+			<td><input ng-model="item.name"/></td>
+			<td><input ng-model="item.value"/></td>						
+		</tr>
+	</tbody>
+</table>
+<!--/Dati-->
+
+<hr>

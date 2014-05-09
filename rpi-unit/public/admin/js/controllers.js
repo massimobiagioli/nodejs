@@ -82,8 +82,17 @@ angular.module('ngRUAApp.controllers', []).
 	  	    angular.extend(this, CRUDControllerFactory.BaseDetailController('program', $scope, $location, $routeParams, CRUDModelFactory));	  	    
 		}
 	]).
-	controller('ProgramParametersController', ['$scope', '$location', '$routeParams', 'CRUDModelFactory', 'program',
-	    function($scope, $location, $routeParams, CRUDModelFactory, program) {     
-			$scope.program = program.result;
+	controller('ProgramParametersController', ['$scope', '$location', '$routeParams', 'CRUDModelFactory', 'CRUDControllerFactory', 'program',
+	    function($scope, $location, $routeParams, CRUDModelFactory, CRUDControllerFactory, program) {     
+			$scope.program = program.result;			
+			angular.extend(this, CRUDControllerFactory.BaseListController('programParameter', $scope, $location, CRUDModelFactory, {
+				queryobj: {
+					filters: [{
+						name: 'id_program',
+						operator: '=',
+						value: program.result.id
+					}]
+				}
+			}));
    	    }
    	]);

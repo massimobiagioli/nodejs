@@ -9,9 +9,9 @@ angular.module('ngRUAApp.services', []).
 		}
 	}).
 	factory('CRUDControllerFactory', function() {
-		var BaseListController = function BaseListController(modelKey, $scope, $location, CRUDModelFactory) {                        
+		var BaseListController = function BaseListController(modelKey, $scope, $location, CRUDModelFactory, args) {                        
 		    $scope.list = function() {
-		        CRUDModelFactory.list(modelKey).then(function(data) {                
+		        CRUDModelFactory.list(modelKey, args).then(function(data) {                
 		            $scope.data = data.result;
 		        }, function(err) {                
 		        	bootbox.alert(err);
@@ -100,17 +100,27 @@ angular.module('ngRUAApp.services', []).
 	}).
     factory('CRUDModelFactory', ['$http', '$rootScope', '$q', 'GlobalSettings', function($http, $rootScope, $q, GlobalSettings) {                                
         var getHeaders = function() {                        
-            return {                
-                'X-Username': $rootScope.loginInfo.username,
-                'X-Password': $rootScope.loginInfo.password
+            var getUsername = function() {
+            	return $rootScope.loginInfo ? $rootScope.loginInfo.username : "";
+            };
+            var getPassword = function() {
+            	return $rootScope.loginInfo.password ? $rootScope.loginInfo.password : "";
+            };
+        	return {                
+                'X-Username': getUsername(),
+                'X-Password': getPassword()
             };                        
         };
         
-        var list = function(modelKey) {                        
+        var list = function(modelKey, data) {                        
+        	var args = {};
+        	args.headers = getHeaders();
+        	if (null != data) {
+        		args.data = data;
+        	}
+        	
         	var deferred = $q.defer(),    	
-        		promise = $http.get(GlobalSettings.services.urlBase + '/list/' + modelKey, {
-	                headers: getHeaders()                
-	            }).then(function(response) {
+        		promise = $http.get(GlobalSettings.services.urlBase + '/list/' + modelKey, args).then(function(response) {
 	            	deferred.resolve(response.data);
 	            }, function(err) {
 	            	deferred.reject(err.data.error);
