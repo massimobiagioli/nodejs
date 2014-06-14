@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Firmata Demo</title>
+  <script src="jquery-1.10.2.js"></script>  
+  <script>
+  function led(mode) {
+    $.ajax({
+		type: "GET",
+		url: 1 == mode ? "/service/led_on" : "/service/led_off",					
+		dataType: "json",					
+	})
+	.done(function(result) {
+		console.log(result)
+	});        
+  }
+  </script>
+</head>
+<body>
+	<button onclick="led(1)">LED ON</button>
+	<button onclick="led(0)">LED OFF</button>  
+</body>
+</html>
