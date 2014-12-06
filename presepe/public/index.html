@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>TEST</title>
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>    
+  
+  <script>
+
+  function relay(channel, command) {
+    $.ajax({
+		type: "GET",
+		url: "/relay",
+		data: {
+			channel: channel,
+			command: command
+		}
+	})
+	.done(function(result) {
+		console.log(result)
+	});        
+  }
+    
+  </script>
+</head>
+<body>
+	<button onclick="relay(1, 1);">Accendi Fontana</button>
+	<button onclick="relay(1, 0);">Spegni Fontana</button> 
+	<button onclick="relay(2, 1);">Accendi Fuoco</button>
+	<button onclick="relay(2, 0);">Spegni Fuoco</button> 
+</body>
+</html>
