@@ -1,0 +1,21 @@
+{
+  "name": "q-demo",
+  "version": "0.1.0",
+  "description": "q-demo",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified! Configure in package.json\" && exit 1"
+  },
+  "repository": "",
+  "keywords": [
+    "Node.js",
+    "Eclipse",
+    "Nodeclipse"
+  ],
+  "author": "",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "q": "~1.1.2"
+  }
+}
